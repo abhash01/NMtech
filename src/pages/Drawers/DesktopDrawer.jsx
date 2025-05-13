@@ -17,6 +17,7 @@ import {
   TurnLeft,
   NorthEast,
 } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const menuData = [
   {
@@ -42,12 +43,20 @@ const menuData = [
 
 const DesktopDrawer = ({ open, close, subMenu }) => {
   const [hoveredSubMenu, setHoveredSubMenu] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (subMenu?.subMenu?.length > 0) {
       setHoveredSubMenu(subMenu.subMenu[0]);
     }
   }, [subMenu]);
+
+  const handleNavigation = (url) => {
+    if (url) {
+      navigate(url); // Navigate to the URL
+      close(); // Close the drawer after navigation
+    }
+  };
 
   return (
     <Drawer
@@ -95,7 +104,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
               {subMenu.label}
             </Typography>
             <Box sx={{ mt: 2, pl: 2 }}>
-              {subMenu.subMenu.map((item, index) => (
+              {subMenu?.subMenu?.map((item, index) => (
                 <Stack
                   direction="row"
                   alignItems="center"
@@ -103,6 +112,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
                   key={index}
                   mb={2}
                   onMouseEnter={() => setHoveredSubMenu(item)}
+                  onClick={() => handleNavigation(item.url)}
                   sx={{
                     cursor: "pointer",
                     pl: "10px",
@@ -124,7 +134,21 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
                     sx={{ color: "inherit", mr: 2 }}
                   />
                 </Stack>
-              ))}
+              )) || (
+                <Typography
+                  variant="body1"
+                  onClick={() => handleNavigation(subMenu?.url)}
+                  sx={{
+                    cursor: "pointer",
+                    color: "var(--color-primary-light)",
+                    "&:hover": {
+                      textDecoration: "underline",
+                    },
+                  }}
+                >
+                  {subMenu?.label || "No menu items available."}
+                </Typography>
+              )}
             </Box>
           </Grid>
           <Grid size={5} sx={{ minHeight: "200px", px: 3 }}>

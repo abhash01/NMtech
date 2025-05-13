@@ -24,6 +24,7 @@ import styles from "./TopNav.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { menuItems, topNavItem } from "../../../data";
 import DesktopDrawer from "../../../pages/Drawers/DesktopDrawer";
+import { useNavigate } from "react-router-dom";
 
 const TopNav = () => {
   const containerRef = useRef(null);
@@ -40,6 +41,7 @@ const TopNav = () => {
   const [subMenu, setSubMenu] = useState(false);
   const isMobile = useMediaQuery("(max-width:450px)");
   const isDesktop = useMediaQuery("(min-width:991px)");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -66,9 +68,17 @@ const TopNav = () => {
   };
 
   const handleNestedDrawerOpen = (menuItem) => {
+    console.log("Navigating to:", menuItem.url); // Debugging log
+    if (menuItem.url) {
+      navigate(menuItem.url, { replace: true }); // Ensure proper navigation
+      setSubDrawerOpen(false); // Close the drawer after navigation
+      return;
+    }
     if (menuItem.hasUpArrow) {
+      console.log("Opening in new tab:", menuItem.url); // Debugging log
       return window.open(menuItem.url, "_blank");
     }
+    console.log("Opening nested submenu:", menuItem); // Debugging log
     setActiveNestedSubMenu(menuItem);
     setNestedDrawerOpen(true);
   };
@@ -250,9 +260,7 @@ const TopNav = () => {
             <ListItem
               button
               key={index}
-              onClick={
-                item.hasSubMenu ? () => handleSubDrawerOpen(item) : undefined
-              }
+              onClick={item.hasSubMenu ? () => handleSubDrawerOpen(item) : ""}
             >
               <ListItemText
                 primary={item.title}
