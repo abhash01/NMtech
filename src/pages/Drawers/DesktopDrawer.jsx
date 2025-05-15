@@ -42,6 +42,7 @@ const menuData = [
 ];
 
 const DesktopDrawer = ({ open, close, subMenu }) => {
+  // console.log("subMenu", subMenu);
   const [hoveredSubMenu, setHoveredSubMenu] = useState(null);
   const navigate = useNavigate();
 
@@ -52,9 +53,13 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
   }, [subMenu]);
 
   const handleNavigation = (url) => {
+    // console.log(url);
     if (url) {
       navigate(url); // Navigate to the URL
       close(); // Close the drawer after navigation
+    } else {
+      navigate("/");
+      close();
     }
   };
 
@@ -156,7 +161,11 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
               {hoveredSubMenu ? (
                 hoveredSubMenu.subMenu?.map((subItem, idx) => (
                   <Grid size={6} key={idx}>
-                    <Typography variant="subtitle1" mb={1}>
+                    <Typography
+                      variant="subtitle1"
+                      mb={1}
+                      onClick={() => handleNavigation(subItem.url)}
+                    >
                       {subItem.title}
                     </Typography>
                   </Grid>
