@@ -8,6 +8,7 @@ import "./index.css";
 // import "./styles/variable.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CalibreDesign from "./pages/CalibreDesign.jsx";
+import PageNotFound from "./components/PageNotFound/PageNotFound.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/calibre-design" element={<CalibreDesign />} />
+          <Route path="*" element={<PageNotFound />} />
           {/* Add more routes as needed */}
         </Routes>
       </Router>
