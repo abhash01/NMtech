@@ -43,13 +43,13 @@ const Footer = () => {
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, sm: 4, lg: 3.5 }}>
             <Typography variant="h6" fontWeight="bold">
-              SIEMENS
+              NM Technocrafts
             </Typography>
             <Typography
               fontWeight="bold"
               sx={{ color: "var(--color-coral-interactive)", mt: 1, mb: 3 }}
             >
-              Siemens Digital Industries Software
+              NM Technocrafts Digital Industries Software
             </Typography>
             <Box display="flex" gap={1}>
               <IconButton

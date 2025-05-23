@@ -156,7 +156,7 @@ export const menuItems = [
     ],
   },
   {
-    title: "Industries",
+    title: "Industrial  Digitalization",
     hasSubMenu: true,
     subMenu: [
       {
@@ -412,7 +412,7 @@ export const topNavItem = [
     ],
   },
   {
-    label: "Industries",
+    label: "Industrial  Digitalization",
     isActive: false,
     subMenu: [
       {
