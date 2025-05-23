@@ -97,6 +97,13 @@ const TopNav = () => {
     setOpenDesktopMenu(false);
   };
 
+  const handleLogoClick = () => {
+    if (drawerOpen) {
+      setDrawerOpen(false); // Close the drawer if it is open
+    }
+    window.location.reload(); // Refresh the page
+  };
+
   useEffect(() => {
     if (!isScrolled) return;
     const menu = menuRef.current;
@@ -167,7 +174,7 @@ const TopNav = () => {
               }}
               className={styles.hamburger}
             />
-            <Box className={styles.logo}></Box>
+            <Box className={styles.logo} onClick={handleLogoClick}></Box>
           </Box>
           <Box className={styles.icons}>
             <IconButton>
