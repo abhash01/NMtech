@@ -70,8 +70,8 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
         sx: {
           width: "100%",
           height: "100%",
-          backgroundColor: "var(--color-interactive-coral-8-db)",
-          color: "var(--color-primary-light)",
+          backgroundColor: "var(--color-primary-light)",
+          color: "var(--color-secondary-light)",
           top: "145px",
         },
       }}
@@ -90,7 +90,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
           onClick={close}
           sx={{ position: "absolute", top: "10px", right: "10px" }}
         >
-          <CloseIcon htmlColor="var(--color-primary-light)" />
+          <CloseIcon htmlColor="var(--color-secondary-light)" />
         </IconButton>
         <Grid container mt={3} alignItems="stretch">
           <Grid
@@ -101,11 +101,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
             height={"100%"}
             alignSelf="stretch"
           >
-            <Typography
-              gutterBottom
-              variant="h6"
-              sx={{ color: "var(--color-green-light)" }}
-            >
+            <Typography gutterBottom variant="h6">
               {subMenu.label}
             </Typography>
             <Box sx={{ mt: 2, pl: 2 }}>
@@ -124,7 +120,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
                     py: "5px",
                     "&:hover": {
                       color: "var(--color-green-light)",
-                      backgroundColor: "var(--color-link-hover)",
+                      backgroundColor: "var(--color-secondary-light)",
                     },
                   }}
                 >
@@ -184,7 +180,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
                   variant="subtitle2"
                   fontWeight="bold"
                   gutterBottom
-                  sx={{ color: "var(--color-primary-light)" }}
+                  sx={{ color: "var(--color-secondary-light)" }}
                 >
                   {section.section}
                 </Typography>
@@ -205,7 +201,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
                       gap: "4px",
                       mb: 1.5,
                       cursor: "pointer",
-                      color: "var(--color-primary-light)",
+                      color: "var(--color-secondary-light)",
                       "&:hover": {
                         textDecoration: "underline",
                       },
