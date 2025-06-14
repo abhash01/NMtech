@@ -18,6 +18,7 @@ import {
   NorthEast,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { b } from "framer-motion/client";
 
 const menuData = [
   {
@@ -84,6 +85,8 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
           width: "1280px",
           margin: "0 auto",
           padding: "1.5rem 2rem",
+          paddingBottom: "10rem",
+          
         }}
       >
         <IconButton
