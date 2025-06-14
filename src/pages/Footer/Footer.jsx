@@ -15,7 +15,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { styled, useTheme } from "@mui/material/styles";
 
-const CommonAccordion = styled(Accordion)(({ theme }) => ({
+const CommonAccordion = styled(Accordion)(() => ({
   backgroundColor: "transparent",
   color: "var(--color-primary-light)",
   boxShadow: "none",
@@ -47,7 +47,7 @@ const Footer = () => {
             </Typography>
             <Typography
               fontWeight="bold"
-              sx={{ color: "var(--color-coral-interactive)", mt: 1, mb: 3 }}
+              sx={{ color: "var(--color-primary-light)", mt: 1, mb: 3 }}
             >
               NM Technocrafts Digital Industries Software
             </Typography>

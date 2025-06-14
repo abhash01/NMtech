@@ -73,7 +73,11 @@ const MainSection = () => {
   return (
     <Box className={styles.mainSectionContainer}>
       <Box className={styles.descriptionContainer}>
-        <Typography variant="h2" component="h2">
+        <Typography
+          variant="h2"
+          component="h2"
+          color="var(--color-primary-light)!important"
+        >
           Why Integration Services Practice?
         </Typography>
         <Typography className={styles.description} component="p">
@@ -84,7 +88,11 @@ const MainSection = () => {
         </Typography>
       </Box>
       <Box>
-        <Typography variant="h2" component="h2">
+        <Typography
+          variant="h2"
+          component="h2"
+          color="var(--color-primary-light)!important"
+        >
           Benefit from personalized consulting services
         </Typography>
         <Box className={styles.accordionWrapper}>

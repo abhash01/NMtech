@@ -6,24 +6,24 @@ import TopNav from "../components/Navbar/TopNav/TopNav.jsx";
 import SubNav from "../components/Navbar/SubNav/SubNav.jsx";
 
 const CalibreDesign = () => {
-   const [isScrolled, setIsScrolled] = useState(false);
-   const isMobileView = useMediaQuery("(max-width: 991px)");
- 
-   useEffect(() => {
-     const handleScroll = () => {
-       setIsScrolled(window.scrollY > 50);
-     };
- 
-     window.addEventListener("scroll", handleScroll);
-     return () => window.removeEventListener("scroll", handleScroll);
-   }, []);
- 
-   const getScrolledHeight = () => {
-     if (isMobileView) {
-       return "75px";
-     }
-     return isScrolled ? "78px" : "150px";
-   };
+  const [isScrolled, setIsScrolled] = useState(false);
+  const isMobileView = useMediaQuery("(max-width: 991px)");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const getScrolledHeight = () => {
+    if (isMobileView) {
+      return "75px";
+    }
+    return isScrolled ? "78px" : "150px";
+  };
   return (
     <>
       <Container

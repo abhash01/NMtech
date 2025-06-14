@@ -52,7 +52,7 @@ function App() {
           position: "sticky",
           top: `${getScrolledHeight()}`,
           zIndex: 999,
-          background: "var(--color-secondary-light)",
+          background: "var(--color-primary-light)",
         }}
       >
         <SubNav scrolledHeight={getScrolledHeight()} />

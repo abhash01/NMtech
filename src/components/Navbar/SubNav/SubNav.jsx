@@ -68,12 +68,7 @@ const SubNav = () => {
                   </Typography>
                 </Paper>
               </Popper>
-              <Button
-                className={styles.productsBtn}
-                style={{ backgroundColor: "var(--color-grey)" }}
-                component="a"
-                href="#"
-              >
+              <Button className={styles.productsBtn} component="a" href="#">
                 Consulting
               </Button>
               <Button

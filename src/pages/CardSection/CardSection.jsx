@@ -49,7 +49,9 @@ const cardsData = [
 const CardSection = () => {
   return (
     <Box className={styles.cardSection}>
-      <Typography component="h3">Explore Active Integration</Typography>
+      <Typography component="h3" color="var(--color-primary-light)!important">
+        Explore Active Integration
+      </Typography>
       <Grid container spacing={4}>
         {cardsData.map((card) => (
           <Grid size={{ xs: 12, sm: 6, md: 4 }} key={card.id}>

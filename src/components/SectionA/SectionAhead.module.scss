@@ -6,7 +6,7 @@
   min-height: 60vh;
   width: 100%;
   position: relative;
-  background-color: #000028;
+  background-color: var(--color-primary-light);
   color: #fff;
 
   @media (max-width: 456px) {

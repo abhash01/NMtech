@@ -50,7 +50,11 @@ const DeepenKnowledge = () => {
 
   return (
     <Box className={styles.deepenKnowledgeSection}>
-      <Typography variant="h2" component="h2">
+      <Typography
+        variant="h2"
+        component="h2"
+        color="var(--color-primary-light)!important"
+      >
         Deepen your knowledge of Active Integration
       </Typography>
       <Grid container spacing={3} mt={3}>

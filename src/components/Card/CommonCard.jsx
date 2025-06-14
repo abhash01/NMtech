@@ -12,7 +12,9 @@ const CommonCard = ({ image, title, description }) => {
         className={styles.cardImage}
       />
       <CardContent>
-        <Typography component="h5">{title}</Typography>
+        <Typography component="h5" color="var(--color-primary-light)!important">
+          {title}
+        </Typography>
         <Typography component="p">{description}</Typography>
       </CardContent>
     </Card>

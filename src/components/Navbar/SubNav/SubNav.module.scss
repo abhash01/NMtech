@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-secondary-light);
+  background-color: var(--color-primary-light);
   height: 60px;
   padding: 0 2rem;
   color: var(--color-primary);
@@ -34,7 +34,7 @@
       text-transform: capitalize;
 
       &:hover {
-        background-color: var(--color-grey);
+        color: var(--color-grey);
       }
     }
 

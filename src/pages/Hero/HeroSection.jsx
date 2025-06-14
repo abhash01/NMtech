@@ -44,17 +44,13 @@ const HeroSection = () => {
                 </Breadcrumbs>
               </Box> */}
               <Box>
-                <Typography
-                  variant="h3"
-                  color="var(--color-primary-light)"
-                  pb={2}
-                >
+                <Typography variant="h3" color="var(--color-primary)" pb={2}>
                   Integration Services Practice Consulting
                 </Typography>
                 <Typography
                   variant="h6"
                   fontSize="1rem"
-                  color="var(--color-primary-light)"
+                  color="var(--color-primary)"
                   pr={7.25}
                 >
                   Design processes across product lifecycle management (PLM),
