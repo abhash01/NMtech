@@ -254,7 +254,17 @@ export const menuItems = [
 ];
 
 export const topNavItem = [
-  { label: "Services Portfolio", isActive: true },
+  {
+    label: "Services Portfolio",
+    isActive: true,
+    subMenu: [
+      {
+        title: "Services Portfolio",
+        hasBorder: true,
+        url: "/redirect/services-portfolio",
+      },
+    ],
+  },
   {
     label: "Customer Support Case Studies",
     isActive: false,

@@ -29,7 +29,10 @@ const SubNav = () => {
 
   return (
     <>
-      <Box className={styles.subNav}>
+      <Box
+        className={styles.subNav}
+        backgroundColor="var(--color-primary-light)"
+      >
         <span className={styles.section}>Active Integration</span>
         <Box className={styles.actions}>
           {!isMobile ? (
