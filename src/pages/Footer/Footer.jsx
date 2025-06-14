@@ -328,7 +328,7 @@ const Footer = () => {
           flexWrap="wrap"
           gap={2}
         >
-          <Typography variant="body1">© Siemens 2025</Typography>
+          <Typography variant="body1">© NM Tech 2025</Typography>
           <Box display="flex" flexWrap="wrap" gap={2}>
             <Link href="#" underline="none" color="inherit">
               Terms of use
