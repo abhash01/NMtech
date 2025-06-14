@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
@@ -30,36 +29,3 @@
 body {
   padding: 0 !important;
 }
-=======
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
-:root {
-  --font-family-base: "Poppins", sans-serif;
-  --color-primary: #f7f7f7;
-  /* --color-primary: #213c76; */
-  --color-interactive-coral-8-db: #001034;
-  /* --color-primary-light: #ffffff; */
-  --color-primary-light: #243d7b;
-  --color-secondary-light: #ebebee;
-  --color-green-light: #202d65;
-  --color-green-lighter: #20387c;
-  --color-coral-interactive: #00cccc;
-  --color-yellow: #faa50a;
-  --color-dark: #000000;
-  --color-grey: #d9d9df;
-  --color-interactive-coral-50-db: #007082;
-  --color-link-focus: #007993;
-  --color-link-hover: #005159;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  padding: 0 !important;
-}
->>>>>>> 98775794b4e168460bd499539e6bc7da4a721d74
