@@ -21,7 +21,7 @@ import {
   Computer,
   Work,
   Assignment,
-} from "@mui/icons-material"; // Replace with actual icons if available
+} from "@mui/icons-material";
 import TopNav from "../../components/Navbar/TopNav/TopNav";
 import SubNav from "../../components/Navbar/SubNav/SubNav";
 import Footer from "../Footer/Footer";
@@ -36,6 +36,10 @@ const ServiceCard = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   boxShadow: theme.shadows[1],
+  transition: "transform 0.3s ease-in-out",
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
 }));
 
 const services = [
@@ -100,6 +104,11 @@ const services = [
     title: "Man-Power Support",
     description:
       "Skilled engineers for Process, Piping, Instrumentation, Electrical",
+  },
+  {
+    icon: <Work fontSize="large" color="secondary" />,
+    title: "Software",
+    description: "Customization [COSMOS, E3D]",
   },
 ];
 

@@ -377,12 +377,14 @@ export const topNavItem = [
         title: "Toyota Engineering – MUMBAI",
         hasSubMenu: true,
         hasBorder: true,
-        subMenu: [{ title: "Digital Logistics" }],
+        url:"/toyota-mumbai"
+        // subMenu: [{ title: "Digital Logistics" }],
       },
       {
         title: "EDMS (Engineering Data Management System) – MUMBAI & KOCHI",
         hasSubMenu: true,
         hasBorder: true,
+        url:"/edms"
         // subMenu: [{ title: "Digital Logistics" }],
       },
     ],
