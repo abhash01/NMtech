@@ -2,12 +2,13 @@
 
 :root {
   --font-family-base: "Poppins", sans-serif;
-  --color-primary: #000028;
+  --color-primary: #f7f7f7;
   /* --color-primary: #213c76; */
   --color-interactive-coral-8-db: #001034;
-  --color-primary-light: #ffffff;
+  /* --color-primary-light: #ffffff; */
+  --color-primary-light: #243d7b;
   --color-secondary-light: #ebebee;
-  --color-green-light: #00ffb9;
+  --color-green-light: #202d65;
   --color-green-lighter: #c4ffee;
   --color-coral-interactive: #00cccc;
   --color-yellow: #faa50a;

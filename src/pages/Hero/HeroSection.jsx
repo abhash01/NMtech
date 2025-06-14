@@ -20,7 +20,7 @@ const HeroSection = () => {
         <Box className={styles.heroContainer} display={isMobile ? "none" : ""}>
           <Grid container>
             <Grid size={7}>
-              <Box className={styles.heroCrumbs}>
+              {/* <Box className={styles.heroCrumbs}>
                 <Breadcrumbs
                   aria-label="breadcrumb"
                   separator={
@@ -42,7 +42,7 @@ const HeroSection = () => {
                     Integration services practice
                   </Typography>
                 </Breadcrumbs>
-              </Box>
+              </Box> */}
               <Box>
                 <Typography
                   variant="h3"

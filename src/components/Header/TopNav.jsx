@@ -72,7 +72,10 @@ const TopNav = () => {
           </IconButton>
           <IconButton>
             <PersonOutline htmlColor="var( --color-primary-light)" />
-            <Typography className={styles.login} color="white">
+            <Typography
+              className={styles.login}
+              color="var(--color-primary-light)"
+            >
               Log in
             </Typography>
           </IconButton>
