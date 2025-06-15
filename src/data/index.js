@@ -378,46 +378,19 @@ export const topNavItem = [
     isActive: false,
     subMenu: [
       {
-        title: "Support",
+        title: "What is COMOS",
         hasSubMenu: true,
-        subMenu: [
-          { title: "Access Support Center" },
-          { title: "Support Services", hasBorder: true },
-        ],
+        url: "/what-is-comos",
       },
       {
-        title: "Communities & blogs",
+        title: "COMOS Modules",
         hasSubMenu: true,
-        subMenu: [
-          { title: "Community" },
-          { title: "Blogs" },
-          { title: "Poadcast Network", hasBorder: true },
-        ],
-      },
-      {
-        title: "Siemens Xcelerator portfolio",
-        hasSubMenu: true,
-        subMenu: [
-          { title: "Portfolio overview" },
-          { title: "Case studies" },
-          { title: "Blogs", hasBorder: true },
-        ],
-      },
-      {
-        title: "Training",
-        hasSubMenu: true,
-        subMenu: [{ title: "Siemens Xcelerator portfolio", hasBorder: true }],
-      },
-      {
-        title: "Events",
-        hasSubMenu: true,
-        subMenu: [{ title: "Global Conferences" }, { title: "EDA Events" }],
+        url: "/comos-modules",
       },
       {
         title: "Partners",
         hasSubMenu: true,
         hasBorder: true,
-        subMenu: [{ title: "Partners" }, { title: "Partner Finder" }],
       },
     ],
   },

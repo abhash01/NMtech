@@ -27,6 +27,8 @@ import EDMS from "./pages/CustomerSupport/EDMS.jsx";
 import DigitalTwin from "./pages/CustomerSupport/DigitalTwin.jsx";
 import OTIntegration from "./pages/CustomerSupport/OTIntegration.jsx";
 import DigitalTranx from "./pages/CustomerSupport/DigitalTranx.jsx";
+import WhatComos from "./pages/CustomerSupport/WhatComos.jsx";
+import ComosModule from "./pages/CustomerSupport/ComosModule.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -53,6 +55,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="/digital-twin" element={<DigitalTwin />} />
           <Route path="/digital-documentation" element={<DigitalTranx />} />
           <Route path="/ot-it-integration" element={<OTIntegration />} />
+          <Route path="/what-is-comos" element={<WhatComos />} />
+          <Route path="/comos-modules" element={<ComosModule />} />
           <Route path="*" element={<PageNotFound />} />
           {/* Add more routes as needed */}
         </Routes>

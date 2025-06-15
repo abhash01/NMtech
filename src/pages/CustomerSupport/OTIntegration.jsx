@@ -68,6 +68,7 @@ const OTIntegration = () => {
             height="100%"
             image={img1}
             alt="OT Integration"
+             sx={{ maxWidth: "720px", margin: "0 auto" }}
           />
           <Typography
             variant="h6"
