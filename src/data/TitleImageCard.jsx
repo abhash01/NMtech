@@ -3,7 +3,7 @@ import { Box, Typography, Grid } from "@mui/material";
 
 const TitleImageCard = ({ title, images }) => {
   return (
-    <Box p={3} boxShadow={3} borderRadius={2} maxWidth={600} mx="auto">
+    <Box p={3} boxShadow={3} borderRadius={2} maxWidth={600} mx="auto" mb={3}>
       <Typography
         variant="h5"
         fontWeight="bold"
