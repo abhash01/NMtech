@@ -18,23 +18,23 @@ import img6 from "../../assets/images/Picture10.png";
 import TitleImageCard from "../../data/TitleImageCard";
 
 const imageList1 = [
-  { url: {img1}, alt: "PFD" },
+  { url: img1, alt: "PFD" },
 ];
 
 const imageList2 = [
-  { url: {img2}, alt: "P&ID" },
+  { url: img2, alt: "P&ID" },
 ];
 const imageList3 = [
-  { url: {img3}, alt: "Functional Diagram" },
+  { url: img3, alt: "Functional Diagram" },
 ];
 const imageList4 = [
-  { url: {img4}, alt: "Cause and Effect Drawings" },
+  { url: img4, alt: "Cause and Effect Drawings" },
 ];
 const imageList5 = [
-  { url: {img5}, alt: "Power Distribution Diagram (SLD)" },
+  { url: img5, alt: "Power Distribution Diagram (SLD)" },
 ];
 const imageList6 = [
-  { url: {img6}, alt: "Detailed Control Schematics" },
+  { url: img6, alt: "Detailed Control Schematics" },
 ];
 
 const DigitalTranx = () => {
