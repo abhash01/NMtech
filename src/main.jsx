@@ -24,6 +24,9 @@ import SNC from "./pages/CustomerSupport/SNC.jsx";
 import ServicesInNutshell from "./pages/CustomerSupport/ServicesInNutshell.jsx";
 import ToyotaMumbai from "./pages/CustomerSupport/ToyotaMumbai.jsx";
 import EDMS from "./pages/CustomerSupport/EDMS.jsx";
+import DigitalTwin from "./pages/CustomerSupport/DigitalTwin.jsx";
+import OTIntegration from "./pages/CustomerSupport/OTIntegration.jsx";
+import DigitalTranx from "./pages/CustomerSupport/DigitalTranx.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -47,6 +50,9 @@ createRoot(document.getElementById("root")).render(
           <Route path="/toyota-mumbai" element={<ToyotaMumbai />} />
           <Route path="/edms" element={<EDMS />} />
           <Route path="/solutions-and-services" element={<ServicesInNutshell />} />
+          <Route path="/digital-twin" element={<DigitalTwin />} />
+          <Route path="/digital-documentation" element={<DigitalTranx />} />
+          <Route path="/ot-it-integration" element={<OTIntegration />} />
           <Route path="*" element={<PageNotFound />} />
           {/* Add more routes as needed */}
         </Routes>
