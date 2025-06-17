@@ -68,17 +68,14 @@ const TopNav = () => {
   };
 
   const handleNestedDrawerOpen = (menuItem) => {
-    // console.log("Navigating to:", menuItem.url); // Debugging log
     if (menuItem.url) {
-      navigate(menuItem.url, { replace: true }); // Ensure proper navigation
-      setSubDrawerOpen(false); // Close the drawer after navigation
+      navigate(menuItem.url, { replace: true });
+      setSubDrawerOpen(false);
       return;
     }
     if (menuItem.hasUpArrow) {
-      // console.log("Opening in new tab:", menuItem.url); // Debugging log
       return window.open(menuItem.url, "_blank");
     }
-    console.log("Opening nested submenu:", menuItem); // Debugging log
     setActiveNestedSubMenu(menuItem);
     setNestedDrawerOpen(true);
   };
@@ -99,9 +96,8 @@ const TopNav = () => {
 
   const handleLogoClick = () => {
     if (drawerOpen) {
-      setDrawerOpen(false); // Close the drawer if it is open
+      setDrawerOpen(false);
     }
-    // window.location.reload(); // Refresh the page
     navigate("/");
   };
 

@@ -3,7 +3,6 @@ import SubNav from "./components/Navbar/SubNav/SubNav";
 import HeroSection from "./pages/Hero/HeroSection";
 import { Container, useMediaQuery } from "@mui/material";
 import TopNav from "./components/Navbar/TopNav/TopNav";
-import styles from "./styles/variable.module.scss";
 import Footer from "./pages/Footer/Footer";
 import CardSection from "./pages/CardSection/CardSection";
 import DeepenKnowledge from "./pages/DeepenKnowledge/DeepenKnowledge";
@@ -57,7 +56,7 @@ function App() {
       >
         <SubNav scrolledHeight={getScrolledHeight()} />
       </Container>
-      <Container maxWidth disableGutters className={styles.heroSection}>
+      <Container maxWidth disableGutters>
         <HeroSection />
       </Container>
       <Container maxWidth disableGutters>
