@@ -22,7 +22,7 @@ import {
 } from "@mui/icons-material";
 import styles from "./TopNav.module.scss";
 import { useEffect, useRef, useState } from "react";
-import { menuItems, topNavItem } from "../../../data";
+import { topNavItem } from "../../../data";
 import DesktopDrawer from "../../../pages/Drawers/DesktopDrawer";
 import { useNavigate } from "react-router-dom";
 
@@ -68,14 +68,14 @@ const TopNav = () => {
   };
 
   const handleNestedDrawerOpen = (menuItem) => {
-    console.log("Navigating to:", menuItem.url); // Debugging log
+    // console.log("Navigating to:", menuItem.url); // Debugging log
     if (menuItem.url) {
       navigate(menuItem.url, { replace: true }); // Ensure proper navigation
       setSubDrawerOpen(false); // Close the drawer after navigation
       return;
     }
     if (menuItem.hasUpArrow) {
-      console.log("Opening in new tab:", menuItem.url); // Debugging log
+      // console.log("Opening in new tab:", menuItem.url); // Debugging log
       return window.open(menuItem.url, "_blank");
     }
     console.log("Opening nested submenu:", menuItem); // Debugging log
@@ -157,9 +157,9 @@ const TopNav = () => {
             <Box className={styles.hamburger}>
               <IconButton onClick={handleDrawerOpen}>
                 {drawerOpen ? (
-                  <CloseIcon htmlColor="white" />
+                  <CloseIcon htmlColor="var(--color-primary-light)" />
                 ) : (
-                  <MenuIcon htmlColor="white" />
+                  <MenuIcon htmlColor="var(--color-primary-light)" />
                 )}
               </IconButton>
             </Box>
@@ -207,7 +207,7 @@ const TopNav = () => {
               className={`${item.isActive ? styles.active : ""}`}
               onClick={() => handleDesktopDrawerOpen(item)}
             >
-              {item.label}
+              {item.title}
             </Typography>
           ))}
         </Box>
@@ -229,7 +229,7 @@ const TopNav = () => {
                 className={index === 0 ? styles.active : ""}
                 onClick={() => handleDesktopDrawerOpen(item)}
               >
-                {item.label}
+                {item.title}
               </Typography>
             ))}
           </Box>
@@ -263,14 +263,14 @@ const TopNav = () => {
           sx: {
             width: "100%",
             height: "100%",
-            backgroundColor: "var(--color-interactive-coral-8-db)",
-            color: "var(--color-primary-light)",
+            backgroundColor: "var(--color-primary-light)",
+            color: "var(--color-secondary-light)",
             marginTop: "74px",
           },
         }}
       >
-        <List sx={{ paddingBottom: "6rem" }}>
-          {menuItems.map((item, index) => (
+        <List sx={{ paddingBottom: "6rem", paddingTop: "1.5rem" }}>
+          {topNavItem.map((item, index) => (
             <ListItem
               button
               key={index}
@@ -281,13 +281,17 @@ const TopNav = () => {
                 className={item.className ? item.className : ""}
                 sx={`${
                   item.hasBorder
-                    ? "border-bottom: 1px solid var(--color-interactive-coral-50-db); padding-bottom: 1.5rem;"
+                    ? "border-bottom: 1px solid var(--color-primary); padding-bottom: 1.5rem;"
                     : ""
                 }`}
               />
               {item.hasSubMenu && (
-                <IconButton edge="end" size="small">
-                  <ChevronRight htmlColor="var(--color-primary-light)" />
+                <IconButton
+                  edge="end"
+                  size="small"
+                  sx={{ alignSelf: "flex-start" }}
+                >
+                  <ChevronRight htmlColor="var(--color-primary)" />
                 </IconButton>
               )}
             </ListItem>
@@ -303,8 +307,8 @@ const TopNav = () => {
           sx: {
             width: "100%",
             height: "100%",
-            backgroundColor: "var(--color-interactive-coral-8-db)",
-            color: "var(--color-primary-light)",
+            backgroundColor: "var(--color-primary-light)",
+            color: "var(--color-secondary-light)",
             marginTop: "74px",
           },
         }}
@@ -312,12 +316,14 @@ const TopNav = () => {
         <Box sx={{ px: 1.5, pt: 3, pb: 1 }}>
           <Stack direction="row" alignItems="center" gap={2} pb={2}>
             <TurnLeft htmlColor="white" onClick={handleSubDrawerClose} />
-            <Typography variant="h6">{activeSubMenu?.title}</Typography>
+            <Typography variant="h6" color="var(--color-primary)">
+              {activeSubMenu?.title}
+            </Typography>
           </Stack>
           <Divider
             orientation="horizontal"
             flexItem
-            sx={{ backgroundColor: "var(--color-interactive-coral-50-db)" }}
+            sx={{ backgroundColor: "var(--color-primary)" }}
           />
         </Box>
         <List sx={{ paddingBottom: "6rem", pt: 0 }}>
@@ -335,13 +341,17 @@ const TopNav = () => {
                 primary={item.title}
                 sx={`${
                   item.hasBorder
-                    ? "border-bottom: 1px solid var(--color-interactive-coral-50-db); padding-bottom: 1.5rem;"
+                    ? "border-bottom: 1px solid var(--color-primary); padding-bottom: 1.5rem;"
                     : ""
                 }`}
               />
               {item.hasSubMenu && (
-                <IconButton edge="end" size="small">
-                  <ChevronRight htmlColor="var(--color-primary-light)" />
+                <IconButton
+                  edge="end"
+                  size="small"
+                  sx={{ alignSelf: "flex-start" }}
+                >
+                  <ChevronRight htmlColor="var(--color-primary)" />
                 </IconButton>
               )}
               {item.hasUpArrow && (
