@@ -18,7 +18,7 @@ import {
   NorthEast,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { b } from "framer-motion/client";
+// import { b } from "framer-motion/client";
 
 const menuData = [
   {
@@ -86,12 +86,11 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
           margin: "0 auto",
           padding: "1.5rem 2rem",
           paddingBottom: "10rem",
-          
         }}
       >
         <IconButton
           onClick={close}
-          sx={{ position: "absolute", top: "10px", right: "10px" }}
+          sx={{ position: "absolute", top: "25px", right: "10px" }}
         >
           <CloseIcon htmlColor="var(--color-secondary-light)" />
         </IconButton>
@@ -105,7 +104,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
             alignSelf="stretch"
           >
             <Typography gutterBottom variant="h6">
-              {subMenu.label}
+              {subMenu.title}
             </Typography>
             <Box sx={{ mt: 2, pl: 2 }}>
               {subMenu?.subMenu?.map((item, index) => (
@@ -150,7 +149,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
                     },
                   }}
                 >
-                  {subMenu?.label || "No menu items available."}
+                  {subMenu?.title || "No menu items available."}
                 </Typography>
               )}
             </Box>
