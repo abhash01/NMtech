@@ -4,9 +4,6 @@ import { heroSectionData } from "../../data";
 
 const HeroSection = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
-
-  console.log("HeroSection Rendered", heroSectionData);
-
   return (
     <>
       <Box className={styles.heroBackground}>
