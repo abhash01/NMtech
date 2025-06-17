@@ -18,7 +18,6 @@ import {
   NorthEast,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-// import { b } from "framer-motion/client";
 
 const menuData = [
   {
@@ -43,7 +42,6 @@ const menuData = [
 ];
 
 const DesktopDrawer = ({ open, close, subMenu }) => {
-  // console.log("subMenu", subMenu);
   const [hoveredSubMenu, setHoveredSubMenu] = useState(null);
   const navigate = useNavigate();
 
@@ -54,10 +52,9 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
   }, [subMenu]);
 
   const handleNavigation = (url) => {
-    // console.log(url);
     if (url) {
-      navigate(url); // Navigate to the URL
-      close(); // Close the drawer after navigation
+      navigate(url);
+      close();
     } else {
       navigate("/");
       close();
@@ -175,7 +172,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
               )}
             </Grid>
           </Grid>
-          <Grid size={3} px={3}>
+          <Grid size={3} px={3} sx={{ display: "none" }}>
             {menuData.map((section, i) => (
               <Box key={i} mb={4}>
                 <Typography
@@ -188,7 +185,7 @@ const DesktopDrawer = ({ open, close, subMenu }) => {
                 </Typography>
                 <Box
                   sx={{
-                    borderBottom: "1px solid #0ff", // adjust color as needed
+                    borderBottom: "1px solid #0ff",
                     width: "100%",
                     mb: 2,
                   }}
