@@ -32,9 +32,9 @@ export const topNavItem = [
         url: "/siemens-comos",
       },
       {
-        title: "Intelligent P&ID Drafting in COMOS - Autria",
+        title: "How COMOS Looks for Asset Management and Design Engineering",
         hasSubMenu: true,
-        url: "/lenzing-autria",
+        url: "/asset-management",
       },
       {
         title: "Intelligent P&ID Drafting in COMOS - Germany",

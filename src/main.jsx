@@ -27,6 +27,7 @@ import DigitalTranx from "./pages/CustomerSupport/DigitalTranx.jsx";
 import WhatComos from "./pages/CustomerSupport/WhatComos.jsx";
 import ComosModule from "./pages/CustomerSupport/ComosModule.jsx";
 import SiemensComos from "./pages/SiemensComos/SiemensComos.jsx";
+import AssetManagement from "./pages/AssetManagement/AssetManagement.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -57,6 +58,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="*" element={<PageNotFound />} />
           {/* New Path routes here */}
           <Route path="/siemens-comos" element={<SiemensComos />} />
+          <Route path="/asset-management" element={<AssetManagement />} />
         </Routes>
       </Router>
     </ThemeProvider>
