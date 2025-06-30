@@ -201,7 +201,11 @@ const TopNav = () => {
               key={index}
               component="span"
               className={`${item.isActive ? styles.active : ""}`}
-              onClick={() => handleDesktopDrawerOpen(item)}
+              onClick={() =>
+                item.title === "Home"
+                  ? navigate("/")
+                  : handleDesktopDrawerOpen(item)
+              }
             >
               {item.title}
             </Typography>

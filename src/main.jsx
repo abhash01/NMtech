@@ -26,6 +26,7 @@ import OTIntegration from "./pages/CustomerSupport/OTIntegration.jsx";
 import DigitalTranx from "./pages/CustomerSupport/DigitalTranx.jsx";
 import WhatComos from "./pages/CustomerSupport/WhatComos.jsx";
 import ComosModule from "./pages/CustomerSupport/ComosModule.jsx";
+import SiemensComos from "./pages/SiemensComos/SiemensComos.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -54,7 +55,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="/what-is-comos" element={<WhatComos />} />
           <Route path="/comos-modules" element={<ComosModule />} />
           <Route path="*" element={<PageNotFound />} />
-          {/* Add more routes as needed */}
+          {/* New Path routes here */}
+          <Route path="/siemens-comos" element={<SiemensComos />} />
         </Routes>
       </Router>
     </ThemeProvider>
