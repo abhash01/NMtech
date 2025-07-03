@@ -37,9 +37,9 @@ export const topNavItem = [
         url: "/asset-management",
       },
       {
-        title: "Intelligent P&ID Drafting in COMOS - Germany",
+        title: "How COMOS looks for Operations and Maintenance",
         hasSubMenu: true,
-        url: "/cabb-germany",
+        url: "/operation-maintenance",
       },
       {
         title: "Digital Twin in COMOS - Indore",

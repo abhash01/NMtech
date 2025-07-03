@@ -28,6 +28,7 @@ import WhatComos from "./pages/CustomerSupport/WhatComos.jsx";
 import ComosModule from "./pages/CustomerSupport/ComosModule.jsx";
 import SiemensComos from "./pages/SiemensComos/SiemensComos.jsx";
 import AssetManagement from "./pages/AssetManagement/AssetManagement.jsx";
+import Operations from "./pages/Operations&Maintaince/Operations.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -59,6 +60,7 @@ createRoot(document.getElementById("root")).render(
           {/* New Path routes here */}
           <Route path="/siemens-comos" element={<SiemensComos />} />
           <Route path="/asset-management" element={<AssetManagement />} />
+          <Route path="/operation-maintenance" element={<Operations />} />
         </Routes>
       </Router>
     </ThemeProvider>
