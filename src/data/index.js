@@ -42,9 +42,9 @@ export const topNavItem = [
         url: "/operation-maintenance",
       },
       {
-        title: "Digital Twin in COMOS - Indore",
+        title: "Operator Training Simulator for Engineering and Operations phase of Plant",
         hasSubMenu: true,
-        url: "/cipla-indore",
+        url: "/operator-training",
       },
       {
         title: "Digital Twin in COMOS - (Vijayanagar)",
