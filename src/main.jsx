@@ -30,6 +30,7 @@ import SiemensComos from "./pages/SiemensComos/SiemensComos.jsx";
 import AssetManagement from "./pages/AssetManagement/AssetManagement.jsx";
 import Operations from "./pages/Operations&Maintaince/Operations.jsx";
 import OperatorTraining from "./pages/OperatorTraining/OperatorTraining.jsx";
+import OperatorRounds from "./pages/OperatorRounds/OperatorRounds.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -63,6 +64,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/asset-management" element={<AssetManagement />} />
           <Route path="/operation-maintenance" element={<Operations />} />
           <Route path="/operator-training" element={<OperatorTraining />} />
+          <Route path="/digital-operator-rounds" element={<OperatorRounds />} />
         </Routes>
       </Router>
     </ThemeProvider>
