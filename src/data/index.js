@@ -47,9 +47,9 @@ export const topNavItem = [
         url: "/operator-training",
       },
       {
-        title: "Digital Twin in COMOS - (Vijayanagar)",
+        title: "Digital Operator Rounds / Mobile Worker",
         hasSubMenu: true,
-        url: "/jsw-steel-vijayanagar",
+        url: "/digital-operator-rounds",
       },
       {
         title: "Evaluating Predictive Mainenance Solutions",
