@@ -31,14 +31,21 @@ import AssetManagement from "./pages/AssetManagement/AssetManagement.jsx";
 import Operations from "./pages/Operations&Maintaince/Operations.jsx";
 import OperatorTraining from "./pages/OperatorTraining/OperatorTraining.jsx";
 import OperatorRounds from "./pages/OperatorRounds/OperatorRounds.jsx";
+import PlantEngg from "./pages/PlantEngg/PlantEngg.jsx";
+import Training from "./pages/Training/Training.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/engineering-software-expertise" element={<EngineeringSoftwareExpertise />} />
+          <Route
+            path="/engineering-software-expertise"
+            element={<EngineeringSoftwareExpertise />}
+          />
           <Route path="/service-include" element={<ServiceInclude />} />
           <Route path="/kochi-refinery" element={<KochiRefineryProject />} />
           <Route path="/lenzing-autria" element={<LenzingAutria />} />
@@ -52,7 +59,10 @@ createRoot(document.getElementById("root")).render(
           <Route path="/snc" element={<SNC />} />
           <Route path="/toyota-mumbai" element={<ToyotaMumbai />} />
           <Route path="/edms" element={<EDMS />} />
-          <Route path="/solutions-and-services" element={<ServicesInNutshell />} />
+          <Route
+            path="/solutions-and-services"
+            element={<ServicesInNutshell />}
+          />
           <Route path="/digital-twin" element={<DigitalTwin />} />
           <Route path="/digital-documentation" element={<DigitalTranx />} />
           <Route path="/ot-it-integration" element={<OTIntegration />} />
@@ -65,6 +75,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="/operation-maintenance" element={<Operations />} />
           <Route path="/operator-training" element={<OperatorTraining />} />
           <Route path="/digital-operator-rounds" element={<OperatorRounds />} />
+          <Route path="/iDB-plant-engineering" element={<PlantEngg />} />
+          <Route path="/training" element={<Training />} />
         </Routes>
       </Router>
     </ThemeProvider>
