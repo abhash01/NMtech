@@ -42,7 +42,8 @@ export const topNavItem = [
         url: "/operation-maintenance",
       },
       {
-        title: "Operator Training Simulator for Engineering and Operations phase of Plant",
+        title:
+          "Operator Training Simulator for Engineering and Operations phase of Plant",
         hasSubMenu: true,
         url: "/operator-training",
       },
@@ -52,45 +53,45 @@ export const topNavItem = [
         url: "/digital-operator-rounds",
       },
       {
-        title: "Evaluating Predictive Mainenance Solutions",
+        title: "Complete customised iDB for plant engineering",
         hasSubMenu: true,
-        url: "/epms",
+        url: "/iDB-plant-engineering",
       },
       {
-        title: "COMOS Training on Admin Modules",
+        title: "ROI for EPC – Engineering Company",
         hasSubMenu: true,
-        url: "/cosmos-admin",
+        url: "",
       },
       {
-        title: "AKER Solutions – MUMBAI",
+        title: "ROI for Owner Operators",
+        hasSubMenu: true,
+        hasBorder: false,
+        url: "",
+      },
+      {
+        title: "Software Engineering",
+        hasSubMenu: true,
+        hasBorder: false,
+        url: "",
+      },
+      {
+        title: "Industry 4.0 Solution",
+        hasSubMenu: true,
+        hasBorder: false,
+        url: "",
+      },
+      {
+        title: "Training",
         hasSubMenu: true,
         hasBorder: true,
-        url: "/aker-mumbai",
+        url: "/training",
       },
-      {
-        title: "Auto Wiring Data Update with ILDS – EIL",
-        hasSubMenu: true,
-        hasBorder: true,
-        url: "/auto-wiring-eil",
-      },
-      {
-        title: "SYN Lava",
-        hasSubMenu: true,
-        hasBorder: true,
-        url: "/snc",
-      },
-      {
-        title: "Toyota Engineering – MUMBAI",
-        hasSubMenu: true,
-        hasBorder: true,
-        url: "/toyota-mumbai",
-      },
-      {
-        title: "EDMS (Engineering Data Management System) – MUMBAI & KOCHI",
-        hasSubMenu: true,
-        hasBorder: true,
-        url: "/edms",
-      },
+      // {
+      //   title: "EDMS (Engineering Data Management System) – MUMBAI & KOCHI",
+      //   hasSubMenu: true,
+      //   hasBorder: true,
+      //   url: "/edms",
+      // },
     ],
   },
   {
@@ -334,7 +335,6 @@ export const comosData = [
     other: "",
   },
 ];
-
 
 export const designData = [
   {

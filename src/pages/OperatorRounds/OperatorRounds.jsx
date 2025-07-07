@@ -233,6 +233,8 @@ const OperatorRounds = () => {
           <Grid container spacing={2} sx={{ marginTop: "1rem" }}>
             {data.map((section, index) => (
               <React.Fragment key={index}>
+                {/* Section Title */}
+                {section.title && (    
                 <Grid size={{ xs: 12 }}>
                   <Stack
                     direction="row"
@@ -255,6 +257,7 @@ const OperatorRounds = () => {
                     </Typography>
                   </Stack>
                 </Grid>
+                )}
 
                 {section.item.map((imgItem, i) => (
                   <Grid
