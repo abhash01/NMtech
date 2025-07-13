@@ -45,12 +45,12 @@ const Footer = () => {
             <Typography variant="h6" fontWeight="bold">
               NM Technocrafts
             </Typography>
-            <Typography
+            {/* <Typography
               fontWeight="bold"
               sx={{ color: "var(--color-primary-light)", mt: 1, mb: 3 }}
             >
               NM Technocrafts Digital Industries Software
-            </Typography>
+            </Typography> */}
             <Box display="flex" gap={1}>
               <IconButton
                 component="a"
@@ -101,7 +101,13 @@ const Footer = () => {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 8, lg: 8.5 }}>
-            <Grid container spacing={2}>
+            <Grid
+              container
+              spacing={2}
+              display="flex"
+              justifyContent="end"
+              gap={5}
+            >
               <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                 {isMobile ? (
                   <CommonAccordion>
@@ -157,7 +163,7 @@ const Footer = () => {
                   </>
                 )}
               </Grid>
-
+              {/* 
               <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                 {isMobile ? (
                   <CommonAccordion>
@@ -218,9 +224,9 @@ const Footer = () => {
                     </Box>
                   </>
                 )}
-              </Grid>
+              </Grid> */}
 
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+              {/* <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                 {isMobile ? (
                   <CommonAccordion>
                     <CommonAccordionSummary
@@ -286,14 +292,14 @@ const Footer = () => {
                     </Box>
                   </>
                 )}
-              </Grid>
+              </Grid> */}
 
               <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                 <Typography variant="h6" fontWeight="bold" gutterBottom>
                   Contact
                 </Typography>
                 <Box display="flex" flexDirection="column" gap={1}>
-                  <Link href="#" className={styles.link}>
+                  {/* <Link href="#" className={styles.link}>
                     PLM - Contact us
                   </Link>
                   <Link href="#" className={styles.link}>
@@ -301,16 +307,16 @@ const Footer = () => {
                   </Link>
                   <Link href="#" className={styles.link}>
                     Worldwide offices
-                  </Link>
+                  </Link> */}
                   <Link href="#" className={styles.link}>
                     Support Center
                   </Link>
                   <Link href="#" className={styles.link}>
                     Provide feedback
                   </Link>
-                  <Link href="#" className={styles.link}>
+                  {/* <Link href="#" className={styles.link}>
                     Report piracy
-                  </Link>
+                  </Link> */}
                 </Box>
               </Grid>
             </Grid>
@@ -328,7 +334,7 @@ const Footer = () => {
           flexWrap="wrap"
           gap={2}
         >
-          <Typography variant="body1">© NM Tech 2025</Typography>
+          <Typography variant="body1">© NM Technocrafts 2025</Typography>
           <Box display="flex" flexWrap="wrap" gap={2}>
             <Link href="#" underline="none" color="inherit">
               Terms of use
@@ -339,9 +345,9 @@ const Footer = () => {
             <Link href="#" underline="none" color="inherit">
               Cookie statement
             </Link>
-            <Link href="#" underline="none" color="inherit">
+            {/* <Link href="#" underline="none" color="inherit">
               DMCA
-            </Link>
+            </Link> */}
             <Link href="#" underline="none" color="inherit">
               Whistleblowing
             </Link>

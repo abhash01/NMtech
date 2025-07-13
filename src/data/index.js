@@ -4,22 +4,23 @@ export const topNavItem = [
   {
     title: "Home",
     // hasBorder: true,
-    hasSubMenu: true,
+    hasSubMenu: false,
     isActive: true,
-    subMenu: [
-      {
-        title: "Engineering Software Expertise",
-        // hasBorder: true,
-        hasSubMenu: true,
-        url: "/engineering-software-expertise",
-      },
-      {
-        title: "Services Include",
-        // hasBorder: true,
-        hasSubMenu: true,
-        url: "/service-include",
-      },
-    ],
+    url: "/",
+    // subMenu: [
+    //   {
+    //     title: "Engineering Software Expertise",
+    //     // hasBorder: true,
+    //     hasSubMenu: true,
+    //     url: "/engineering-software-expertise",
+    //   },
+    //   {
+    //     title: "Services Include",
+    //     // hasBorder: true,
+    //     hasSubMenu: true,
+    //     url: "/service-include",
+    //   },
+    // ],
   },
   {
     title: "Services",
@@ -57,29 +58,29 @@ export const topNavItem = [
         hasSubMenu: true,
         url: "/iDB-plant-engineering",
       },
-      {
-        title: "ROI for EPC – Engineering Company",
-        hasSubMenu: true,
-        url: "",
-      },
-      {
-        title: "ROI for Owner Operators",
-        hasSubMenu: true,
-        hasBorder: false,
-        url: "",
-      },
-      {
-        title: "Software Engineering",
-        hasSubMenu: true,
-        hasBorder: false,
-        url: "",
-      },
-      {
-        title: "Industry 4.0 Solution",
-        hasSubMenu: true,
-        hasBorder: false,
-        url: "",
-      },
+      // {
+      //   title: "ROI for EPC – Engineering Company",
+      //   hasSubMenu: true,
+      //   url: "",
+      // },
+      // {
+      //   title: "ROI for Owner Operators",
+      //   hasSubMenu: true,
+      //   hasBorder: false,
+      //   url: "",
+      // },
+      // {
+      //   title: "Software Engineering",
+      //   hasSubMenu: true,
+      //   hasBorder: false,
+      //   url: "",
+      // },
+      // {
+      //   title: "Industry 4.0 Solution",
+      //   hasSubMenu: true,
+      //   hasBorder: false,
+      //   url: "",
+      // },
       {
         title: "Training",
         hasSubMenu: true,
@@ -94,61 +95,52 @@ export const topNavItem = [
       // },
     ],
   },
-  {
-    title: "Products",
-    isActive: false,
-    hasSubMenu: true,
-    subMenu: [
-      {
-        title: "Solutions & services",
-        hasSubMenu: true,
-        url: "/solutions-and-services",
-      },
-    ],
-  },
+  
   {
     title: "About us",
     isActive: false,
-    hasSubMenu: true,
-    subMenu: [
-      {
-        title: "Digital Twin",
-        hasUpArrow: true,
-        url: "/digital-twin",
-      },
-      {
-        title: "Digital Documentation",
-        hasUpArrow: true,
-        url: "/digital-documentation",
-      },
-      {
-        title: "OT - IT Integration",
-        hasUpArrow: true,
-        url: "/ot-it-integration",
-      },
-    ],
+    hasSubMenu: false,
+    url: "/about-us",
+    // subMenu: [
+    //   {
+    //     title: "Digital Twin",
+    //     hasUpArrow: true,
+    //     url: "/digital-twin",
+    //   },
+    //   {
+    //     title: "Digital Documentation",
+    //     hasUpArrow: true,
+    //     url: "/digital-documentation",
+    //   },
+    //   {
+    //     title: "OT - IT Integration",
+    //     hasUpArrow: true,
+    //     url: "/ot-it-integration",
+    //   },
+    // ],
   },
   {
     title: "Contact us",
     isActive: false,
-    hasSubMenu: true,
-    subMenu: [
-      {
-        title: "What is COMOS",
-        hasSubMenu: true,
-        url: "/what-is-comos",
-      },
-      {
-        title: "COMOS Modules",
-        hasSubMenu: true,
-        url: "/comos-modules",
-      },
-      {
-        title: "Partners",
-        hasSubMenu: true,
-        hasBorder: true,
-      },
-    ],
+    hasSubMenu: false,
+    url: "/contact-us",
+    // subMenu: [
+    //   {
+    //     title: "What is COMOS",
+    //     hasSubMenu: true,
+    //     url: "/what-is-comos",
+    //   },
+    //   {
+    //     title: "COMOS Modules",
+    //     hasSubMenu: true,
+    //     url: "/comos-modules",
+    //   },
+    //   {
+    //     title: "Partners",
+    //     hasSubMenu: true,
+    //     hasBorder: true,
+    //   },
+    // ],
   },
 ];
 

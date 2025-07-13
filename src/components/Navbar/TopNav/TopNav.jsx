@@ -173,7 +173,7 @@ const TopNav = () => {
             />
             <Box className={styles.logo} onClick={handleLogoClick}></Box>
           </Box>
-          <Box className={styles.icons}>
+          {/* <Box className={styles.icons}>
             <IconButton>
               <Search htmlColor="var( --color-primary-light)" />
             </IconButton>
@@ -193,7 +193,7 @@ const TopNav = () => {
                 Log in
               </Typography>
             </IconButton>
-          </Box>
+          </Box> */}
         </Box>
         <Box className={styles.menu}>
           {topNavItem.map((item, index) => (
@@ -204,6 +204,8 @@ const TopNav = () => {
               onClick={() =>
                 item.title === "Home"
                   ? navigate("/")
+                  : item.url
+                  ? navigate(item.url, { replace: true })
                   : handleDesktopDrawerOpen(item)
               }
             >
@@ -227,14 +229,20 @@ const TopNav = () => {
                 component="span"
                 ref={index === 0 ? firstItemRef : null}
                 className={index === 0 ? styles.active : ""}
-                onClick={() => handleDesktopDrawerOpen(item)}
+                onClick={() =>
+                  item.title === "Home"
+                    ? navigate("/")
+                    : item.url
+                    ? navigate(item.url, { replace: true })
+                    : handleDesktopDrawerOpen(item)
+                }
               >
                 {item.title}
               </Typography>
             ))}
           </Box>
         </Box>
-        <Box className={styles.icons}>
+        {/* <Box className={styles.icons}>
           <IconButton>
             <Search htmlColor="var(--color-primary-light)" />
           </IconButton>
@@ -251,7 +259,7 @@ const TopNav = () => {
               Log in
             </Typography>
           </IconButton>
-        </Box>
+        </Box> */}
       </Box>
 
       {/* main drawer */}
@@ -274,7 +282,13 @@ const TopNav = () => {
             <ListItem
               button
               key={index}
-              onClick={item.hasSubMenu ? () => handleSubDrawerOpen(item) : ""}
+              onClick={
+                item.hasSubMenu
+                  ? () => handleSubDrawerOpen(item)
+                  : item.url
+                  ? () => navigate(item.url, { replace: true })
+                  : undefined
+              }
             >
               <ListItemText
                 primary={item.title}
@@ -427,6 +441,7 @@ const TopNav = () => {
           open={openDesktopMenu}
           subMenu={subMenu}
           close={handleDesktopDraweClose}
+          isScrolled={isScrolled}
         />
       )}
     </>

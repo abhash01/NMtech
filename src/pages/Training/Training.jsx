@@ -1,50 +1,83 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Typography,
   Container,
   useMediaQuery,
-  Stack,
   Grid,
   styled,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
 import TopNav from "../../components/Navbar/TopNav/TopNav";
 import SubNav from "../../components/Navbar/SubNav/SubNav";
 import Footer from "../Footer/Footer";
-import ExtensionIcon from "@mui/icons-material/Extension";
 
-const data = [
+const trainingData = [
   {
-    title: "",
-    item: [
+    title: "COMOS from SIEMENS",
+    subtopics: [
       {
-        image: undefined,
-        alt: "",
-        description: "COMOS",
-        subtitle: "",
+        subtitle: "User Level Training",
         points: [
-          "COMOS Basic – Platform Module",
-          "COMOS FEED Module",
-          "COMOS P&ID",
-          "COMOS EI&C",
-          "COMOS Logical",
-          "COMOS DDMS",
-          "COMOS Web",
-          "COMOS Walkinside",
-          "COMOS Mobile Worker",
+          "Basic",
+          "Process [BFD, PFD, P&ID, PDS, List reports]",
+          "Instrumentation [Index, IO List, ILD, JIB Schedule, Cable Schedule, Control System engineering, Hook-Ups]",
+          "Electrical [SLD, Schematics, Consumer List, Cable Schedule, Installation Hook-Ups]",
+          "Plant Documentation – DDMS",
+          "3D Integration with E3D",
+          "Plant Maintenance activities with planning, work permits, LOTO",
+          "Asset KPI monitoring",
+        ],
+      },
+      {
+        subtitle: "ADMIN Level Training",
+        points: [
+          "ADMIN – I, II and III [Including script writing and DLL creation]",
+        ],
+      },
+      {
+        subtitle: "COMOS WalkInside",
+        points: [
+          "Editor, Viewer and Scenario builder",
+          "4D simulation [interface with planning]",
+        ],
+      },
+      {
+        subtitle: "COMOS Web",
+        points: [
+          "Setup and configuration",
+          "Basic operation",
+          "Document management, Task management, redlining and workflow approvals",
+          "Dashboards: Creation and drill downs",
         ],
       },
     ],
   },
   {
-    title: "",
-    item: [
+    title:
+      "Smart Plant Solutions from HEXAGON [both User level and Admin Levels]",
+    subtopics: [
+      { subtitle: "SPPID" },
+      { subtitle: "SPI" },
+      { subtitle: "SP3D" },
+    ],
+  },
+  {
+    title: "AVEVA Engineering Solutions",
+    subtopics: [
       {
-        image: undefined,
-        alt: "",
-        description: "Hexagon Solutions",
-        subtitle: "",
-        points: ["SPPID", "SPI", "SPEL"],
+        subtitle: "AVEVA P&ID and Diagrams",
+      },
+      {
+        subtitle: "AVEVA Engineering",
+      },
+      {
+        subtitle: "AVEVA E3D",
+      },
+      {
+        subtitle: "AVEVA NET",
       },
     ],
   },
@@ -110,7 +143,7 @@ const Training = () => {
         <SubNav scrolledHeight={getScrolledHeight()} />
       </Container>
 
-      <Container maxWidth="lg" sx={{ py: 6, paddingInline: "1rem !important" }}>
+      <Container maxWidth="md" sx={{ py: 6, paddingInline: "1rem !important" }}>
         <Box>
           <Typography
             variant="h5"
@@ -130,131 +163,47 @@ const Training = () => {
             textAlign="center"
             fontWeight={400}
           >
-            We provide trainings on following software solutions:
+            We provide training on below Engineering Software Solutions:
           </Typography>
 
           <Grid container spacing={2} sx={{ marginTop: "1rem" }}>
-            {data.map((section, index) => (
-              <React.Fragment key={index}>
-                {/* Section Title */}
-                {section.title && (
-                  <Grid size={{ xs: 12 }}>
-                    <Stack
-                      direction="row"
-                      alignItems="center"
-                      spacing={1}
-                      sx={{ mt: 2 }}
-                    >
-                      <ExtensionIcon
-                        fontSize="small"
-                        sx={{ color: "var(--color-dark)" }}
-                      />
+            {trainingData.map((section, i) => (
+              <Box
+                key={i}
+                sx={{ mb: 4 }}
+                borderBottom={1}
+                borderColor="divider"
+                width={"100%"}
+              >
+                <Typography variant="h6" fontWeight={600} sx={{ mb: 1 }}>
+                  • {section.title}
+                </Typography>
+
+                {section.subtopics.map((sub, j) => (
+                  <Box key={j} sx={{ pl: 2, mb: 0 }}>
+                    {sub.subtitle && (
                       <Typography
-                        variant="h6"
-                        component="h6"
-                        sx={{ color: "var(--color-dark)" }}
-                        fontWeight={600}
-                        gutterBottom
+                        variant="subtitle1"
+                        fontWeight={500}
+                        sx={{ mb: 0 }}
                       >
-                        {section.title}
+                        ○ {sub.subtitle}
                       </Typography>
-                    </Stack>
-                  </Grid>
-                )}
-
-                {section.item.map((imgItem, i) => (
-                  <Grid
-                    size={{ xs: 12 }}
-                    key={i}
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      // alignItems: "center",
-                    }}
-                  >
-                    <Box sx={{ marginLeft: { xs: "0", md: "15%" } }}>
-                      {imgItem.description && (
-                        <Typography
-                          variant="h6"
-                          sx={{
-                            color: "var(--color-dark)",
-                            mt: 2,
-                            fontWeight: 600,
-                            // textAlign: "center",
-                          }}
-                        >
-                          » {imgItem.description}
-                        </Typography>
-                      )}
-
-                      {imgItem.subtitle && (
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            color: "var(--color-dark)",
-                            mt: 1,
-                            fontWeight: 600,
-                            marginLeft: { xs: "0", md: "2%" },
-                          }}
-                        >
-                          → {imgItem.subtitle}
-                        </Typography>
-                      )}
-
-                      {imgItem.points && imgItem.points.length > 0 && (
-                        <Box
-                          component="ul"
-                          sx={{
-                            pl: 3,
-                            mb: 2,
-                            color: "var(--color-dark)",
-                            maxWidth: "70%",
-                            marginLeft: { xs: "0", md: "5%" },
-                          }}
-                        >
-                          {imgItem.points.map((point, index) =>
-                            typeof point === "string" ? (
-                              <li key={index}>
-                                <Typography variant="body2">{point}</Typography>
-                              </li>
-                            ) : (
-                              <li key={index}>
-                                <Typography variant="body2" fontWeight={500}>
-                                  {point.text}
-                                </Typography>
-                                <Box component="ul" sx={{ pl: 3 }}>
-                                  {point.subpoints.map((sub, subIndex) => (
-                                    <li key={subIndex}>
-                                      <Typography variant="body2">
-                                        {sub}
-                                      </Typography>
-                                    </li>
-                                  ))}
-                                </Box>
-                              </li>
-                            )
-                          )}
-                        </Box>
-                      )}
-                    </Box>
-
-                    {imgItem.table && imgItem.table}
-
-                    {imgItem.image && imgItem.alt && (
-                      <ImageCard
-                        component="img"
-                        src={imgItem.image}
-                        alt={imgItem.alt}
-                        sx={{
-                          marginTop: "1rem",
-                          maxWidth: { xs: "90%", sm: "80%", md: "70%" },
-                          marginInline: "auto",
-                        }}
-                      />
                     )}
-                  </Grid>
+                    <List dense sx={{ listStyleType: "square", pl: 4 }}>
+                      {sub.points &&
+                        sub.points.map((point, k) => (
+                          <ListItem
+                            key={k}
+                            sx={{ display: "list-item", py: 0 }}
+                          >
+                            <ListItemText primary={point} />
+                          </ListItem>
+                        ))}
+                    </List>
+                  </Box>
                 ))}
-              </React.Fragment>
+              </Box>
             ))}
           </Grid>
         </Box>
