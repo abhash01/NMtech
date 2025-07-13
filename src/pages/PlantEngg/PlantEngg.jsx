@@ -184,17 +184,6 @@ const data = [
     title: "",
     item: [
       {
-        image: undefined,
-        alt: "Complete Project Management Image",
-        description: "Cable Block Diagrams",
-        subtitle: "",
-      },
-    ],
-  },
-  {
-    title: "",
-    item: [
-      {
         image: cemImg,
         alt: "Complete Project Management Image",
         description: "Cause and Effect Matrix",

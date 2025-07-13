@@ -34,6 +34,8 @@ import OperatorRounds from "./pages/OperatorRounds/OperatorRounds.jsx";
 import PlantEngg from "./pages/PlantEngg/PlantEngg.jsx";
 import Training from "./pages/Training/Training.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import AboutUs from "./pages/AboutUs/AboutUs.jsx";
+import ContactUs from "./pages/ContactUs/ContactUs.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -77,6 +79,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="/digital-operator-rounds" element={<OperatorRounds />} />
           <Route path="/iDB-plant-engineering" element={<PlantEngg />} />
           <Route path="/training" element={<Training />} />
+          <Route path="/about-us" element={<AboutUs />}/>
+          <Route path="/contact-us" element={<ContactUs />}/>
         </Routes>
       </Router>
     </ThemeProvider>

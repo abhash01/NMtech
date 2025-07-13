@@ -54,7 +54,7 @@ function App() {
           background: "var(--color-primary-light)",
         }}
       >
-        <SubNav scrolledHeight={getScrolledHeight()} />
+        {/* <SubNav scrolledHeight={getScrolledHeight()} /> */}
       </Container>
       <Container maxWidth disableGutters>
         <HeroSection />
