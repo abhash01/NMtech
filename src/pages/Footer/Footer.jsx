@@ -51,52 +51,124 @@ const Footer = () => {
             >
               NM Technocrafts Digital Industries Software
             </Typography> */}
-            <Box display="flex" gap={1}>
-              <IconButton
-                component="a"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                color="inherit"
-              >
-                <FacebookIcon />
-              </IconButton>
-              <IconButton
-                component="a"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                color="inherit"
-              >
-                <XIcon />
-              </IconButton>
-              <IconButton
-                component="a"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                color="inherit"
-              >
-                <LinkedInIcon />
-              </IconButton>
-              <IconButton
-                component="a"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                color="inherit"
-              >
-                <InstagramIcon />
-              </IconButton>
-              <IconButton
-                component="a"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                color="inherit"
-              >
-                <YouTubeIcon />
-              </IconButton>
+            <Box
+              display={"flex"}
+              flexDirection="column"
+              justifyContent={"space-between"}
+              gap={{ xs: 2, sm: 4, md: 12 }}
+            >
+              <Box display="flex" gap={1}>
+                <IconButton
+                  component="a"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="inherit"
+                >
+                  <FacebookIcon />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="inherit"
+                >
+                  <XIcon />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="inherit"
+                >
+                  <LinkedInIcon />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="inherit"
+                >
+                  <InstagramIcon />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="inherit"
+                >
+                  <YouTubeIcon />
+                </IconButton>
+              </Box>
+              <Box sx={{ display: "flex", gap: 1 }}>
+                <Box
+                  sx={{
+                    width: "150px",
+                    height: "150px",
+                    border: "1px solid #282c34",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "1rem",
+                    textAlign: "center",
+                    background: "#bec0c6ff",
+                    color: "white",
+                  }}
+                >
+                  <Typography
+                    // component="p"
+                    variant="body1"
+                    sx={{ color: "inherit", fontWeight: 500 }}
+                  >
+                    Solution Partner
+                  </Typography>
+                  <Typography
+                    // component="p"
+                    variant="body1"
+                    sx={{ color: "inherit", mt: 1, fontWeight: 500 }}
+                  >
+                    COMOS Industry Solutions
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    width: "150px",
+                    height: "150px",
+                    border: "1px solid #282c34",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "1rem",
+                    textAlign: "center",
+                    cursor: "pointer",
+                    
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open(
+                      "https://www.siemens.com/in/en/products/automation/industry-software/plant-engineering-software-comos.html",
+                      "_blank"
+                    );
+                  }}
+                >
+                  <Typography
+                    // component="p"
+                    variant="h6"
+                    sx={{
+                      color: "var(--color-coral-interactive)",
+                      fontWeight: 700,
+                    }}
+                  >
+                    SIEMENS
+                  </Typography>
+                </Box>
+              </Box>
             </Box>
           </Grid>
 
@@ -108,14 +180,14 @@ const Footer = () => {
               justifyContent="end"
               gap={5}
             >
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+              {/* <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                 {isMobile ? (
                   <CommonAccordion>
                     <CommonAccordionSummary
                       expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
                     >
                       <Typography variant="h6" fontWeight="bold">
-                        Portfolio
+                        NM Technocrafts
                       </Typography>
                     </CommonAccordionSummary>
                     <AccordionDetails sx={{ px: 0, pb: 0, pt: 2 }}>
@@ -162,9 +234,40 @@ const Footer = () => {
                     </Box>
                   </>
                 )}
+              </Grid> */}
+
+              <Grid size={{ xs: 12, sm: 6, md: 6 }}>
+                <Typography variant="h6" fontWeight="bold" gutterBottom>
+                  NM Technocrafts
+                </Typography>
+                <Box display="flex" flexDirection="column" gap={1}>
+                  <Link href="/siemens-comos" className={styles.link}>
+                    ▶ SIEMENS COMOS
+                  </Link>
+                  <Link href="/asset-management" className={styles.link}>
+                    ▶ How COMOS Looks for Asset Management and Design
+                    Engineering
+                  </Link>
+                  <Link href="/operation-maintenance" className={styles.link}>
+                    ▶ How COMOS looks for Operations and Maintenance
+                  </Link>
+                  <Link href="/operator-training" className={styles.link}>
+                    ▶ Operator Training Simulator for Engineering and Operations
+                    phase of Plant
+                  </Link>
+                  <Link href="/digital-operator-rounds" className={styles.link}>
+                    ▶ Digital Operator Rounds / Mobile Worker
+                  </Link>
+                  <Link href="/iDB-plant-engineering" className={styles.link}>
+                    ▶ Complete customised iDB for plant engineering
+                  </Link>
+                  <Link href="/training" className={styles.link}>
+                    ▶ Training
+                  </Link>
+                </Box>
               </Grid>
-              {/* 
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+
+              {/*  <Grid size={{ xs: 12, sm: 6, md: 3 }}>
                 {isMobile ? (
                   <CommonAccordion>
                     <CommonAccordionSummary
@@ -308,11 +411,11 @@ const Footer = () => {
                   <Link href="#" className={styles.link}>
                     Worldwide offices
                   </Link> */}
-                  <Link href="#" className={styles.link}>
-                    Support Center
+                  <Link href="/about-us" className={styles.link}>
+                    ▶ About us
                   </Link>
-                  <Link href="#" className={styles.link}>
-                    Provide feedback
+                  <Link href="/contact-us" className={styles.link}>
+                    ▶ Contact us
                   </Link>
                   {/* <Link href="#" className={styles.link}>
                     Report piracy
@@ -334,8 +437,10 @@ const Footer = () => {
           flexWrap="wrap"
           gap={2}
         >
-          <Typography variant="body1">© NM Technocrafts 2025</Typography>
-          <Box display="flex" flexWrap="wrap" gap={2}>
+          <Typography variant="body1">
+            © NM Technocrafts 2025 | Crafting new technologies for you
+          </Typography>
+          {/* <Box display="flex" flexWrap="wrap" gap={2}>
             <Link href="#" underline="none" color="inherit">
               Terms of use
             </Link>
@@ -345,13 +450,13 @@ const Footer = () => {
             <Link href="#" underline="none" color="inherit">
               Cookie statement
             </Link>
-            {/* <Link href="#" underline="none" color="inherit">
+            <Link href="#" underline="none" color="inherit">
               DMCA
-            </Link> */}
+            </Link>
             <Link href="#" underline="none" color="inherit">
               Whistleblowing
             </Link>
-          </Box>
+          </Box> */}
         </Box>
       </Box>
     </Box>

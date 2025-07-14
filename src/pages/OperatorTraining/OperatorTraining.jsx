@@ -120,7 +120,7 @@ const OperatorTraining = () => {
           background: "var(--color-primary-light)",
         }}
       >
-        <SubNav scrolledHeight={getScrolledHeight()} />
+        {/* <SubNav scrolledHeight={getScrolledHeight()} /> */}
       </Container>
 
       <Container maxWidth="lg" sx={{ py: 6, paddingInline: "1rem !important" }}>
