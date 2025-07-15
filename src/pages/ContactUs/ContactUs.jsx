@@ -1,20 +1,16 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import {
   Box,
   Typography,
   Container,
-  useMediaQuery,
   Stack,
   Button,
   TextField,
+  Grid,
 } from "@mui/material";
-import TopNav from "../../components/Navbar/TopNav/TopNav";
-import SubNav from "../../components/Navbar/SubNav/SubNav";
-import Footer from "../Footer/Footer";
+import MainLayout from "../layouts/MainLayout";
 
 const ContactUs = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const isMobileView = useMediaQuery("(max-width: 991px)");
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
 
@@ -43,60 +39,23 @@ const ContactUs = () => {
       );
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const getScrolledHeight = () => {
-    return isMobileView ? "75px" : isScrolled ? "78px" : "150px";
-  };
   return (
-    <>
-      <Container
-        maxWidth
-        disableGutters
-        style={{
-          backgroundColor: "var(--color-primary)",
-          position: "sticky",
-          top: 0,
-          zIndex: 9999,
-        }}
-      >
-        <TopNav isMenuVisible={isMobileView} />
-      </Container>
-
-      <Container
-        maxWidth
-        disableGutters
-        sx={{
-          position: "sticky",
-          top: `${getScrolledHeight()}`,
-          zIndex: 999,
-          background: "var(--color-primary-light)",
-        }}
-      >
-        {/* <SubNav scrolledHeight={getScrolledHeight()} /> */}
-      </Container>
-
-      <Container maxWidth="sm" sx={{ py: 6 }}>
+    <MainLayout>
+      <Container maxWidth="md" sx={{ py: 6 }}>
         <Typography
           variant="h4"
-          fontWeight={700}
-          textAlign="center"
-          sx={{ mb: 1 }}
+          fontWeight={600}
+          color="var(--color-primary-light)"
+          align="center"
+          gutterBottom
         >
           CONTACT FORM
         </Typography>
         <Box
           sx={{
             height: "3px",
-            width: "40px",
-            background: "red",
+            width: "60px",
+            background: "var(--color-primary-light)",
             mx: "auto",
             mb: 4,
           }}
@@ -106,46 +65,78 @@ const ContactUs = () => {
           component="form"
           ref={formRef}
           onSubmit={handleSubmit}
-          sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+          // sx={{ display: "flex", flexDirection: "column", gap: 2 }}
         >
-          <TextField
-            name="user_name"
-            placeholder="Your Name"
-            fullWidth
-            required
-          />
-          <TextField
-            name="user_email"
-            type="email"
-            placeholder="Your Email"
-            fullWidth
-            required
-          />
-          <TextField name="user_mobile" placeholder="Your Mobile" fullWidth />
-          <TextField name="company_name" placeholder="Company Name" fullWidth />
-          <TextField
-            name="message"
-            placeholder="Message"
-            multiline
-            minRows={4}
-            fullWidth
-          />
-          <input type="file" name="attachment" />
-          <Stack direction="row" justifyContent="center" sx={{ mt: 2 }}>
-            <Button
-              type="submit"
-              variant="contained"
-              color="primary"
-              disabled={loading}
-            >
-              {loading ? "Sending..." : "Submit"}
-            </Button>
-          </Stack>
+          <Grid container spacing={2}>
+            <Grid size={6}>
+              <TextField
+                label="Your Name"
+                name="user_name"
+                placeholder="Your Name"
+                fullWidth
+                required
+              />
+            </Grid>
+            <Grid size={6}>
+              <TextField
+                label="Your Email"
+                name="user_email"
+                type="email"
+                placeholder="Your Email"
+                fullWidth
+                required
+              />
+            </Grid>
+            <Grid size={6}>
+              <TextField
+                label="Your Mobile"
+                name="user_mobile"
+                placeholder="Your Mobile"
+                fullWidth
+              />
+            </Grid>
+            <Grid size={6}>
+              <TextField
+                label="Company Name"
+                name="company_name"
+                placeholder="Company Name"
+                fullWidth
+              />
+            </Grid>
+            <Grid size={12}>
+              <TextField
+                label="Message"
+                name="message"
+                placeholder="Message"
+                multiline
+                minRows={4}
+                fullWidth
+              />
+            </Grid>
+            <Grid size={12}>
+              <input type="file" name="attachment" />
+            </Grid>
+            <Stack direction="row" justifyContent="center" sx={{ mt: 2 }}>
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{
+                  backgroundColor: "var(--color-primary-light)",
+                  color: "var(--color-primary)",
+                  "&:hover": {
+                    color: "var(--color-primary-light)",
+                    backgroundColor: "var(--color-primary-dark)",
+                  },
+                }}
+                disabled={loading}
+              >
+                {loading ? "Sending..." : "Submit"}
+              </Button>
+            </Stack>
+          </Grid>
         </Box>
       </Container>
-
-      <Footer />
-    </>
+    </MainLayout>
   );
 };
 
