@@ -80,7 +80,7 @@ const trainingData = [
 const Training = () => {
   return (
     <MainLayout>
-      <Container maxWidth="md" sx={{ py: 6 }}>
+      <Container maxWidth="lg" sx={{ py: 6 }}>
         <Box textAlign="center" mb={4}>
           <Typography
             variant="h4"

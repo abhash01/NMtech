@@ -5,8 +5,63 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import styles from "./Footer.module.scss";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
+import { useNavigate } from "react-router-dom";
+
+const nmLinks = [
+  { label: "SIEMENS COMOS", url: "/siemens-comos" },
+  {
+    label: "How COMOS Looks for Asset Management and Design Engineering",
+    url: "/asset-management",
+  },
+  {
+    label: "How COMOS looks for Operations and Maintenance",
+    url: "/operation-maintenance",
+  },
+  {
+    label:
+      "Operator Training Simulator for Engineering and Operations phase of Plant",
+    url: "/operator-training",
+  },
+  {
+    label: "Digital Operator Rounds / Mobile Worker",
+    url: "/digital-operator-rounds",
+  },
+  {
+    label: "Complete customised iDB for plant engineering",
+    url: "/iDB-plant-engineering",
+  },
+  { label: "Training", url: "/training" },
+];
+
+const contactLinks = [
+  { label: "About us", url: "/about-us" },
+  { label: "Contact us", url: "/contact-us" },
+];
+
+const partnerBoxes = [
+  {
+    title: "Solution Partner",
+    subtitle: "COMOS Industry Solutions",
+    bg: "#aaacb047",
+    textColor: "white",
+    clickable: false,
+  },
+  {
+    title: "SIEMENS",
+    subtitle: null,
+    onClick: () =>
+      window.open(
+        "https://www.siemens.com/in/en/products/automation/industry-software/plant-engineering-software-comos.html",
+        "_blank"
+      ),
+    textColor: "var(--color-coral-interactive)",
+    clickable: true,
+  },
+];
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <Box className={styles.footerContainer}>
       <Box className={styles.innerContainer}>
@@ -28,6 +83,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   color="inherit"
+                  className={styles.iconButton}
                 >
                   <FacebookIcon />
                 </IconButton>
@@ -37,6 +93,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   color="inherit"
+                  className={styles.iconButton}
                 >
                   <XIcon />
                 </IconButton>
@@ -46,6 +103,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   color="inherit"
+                  className={styles.iconButton}
                 >
                   <LinkedInIcon />
                 </IconButton>
@@ -55,6 +113,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   color="inherit"
+                  className={styles.iconButton}
                 >
                   <InstagramIcon />
                 </IconButton>
@@ -64,70 +123,63 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   color="inherit"
+                  className={styles.iconButton}
                 >
                   <YouTubeIcon />
                 </IconButton>
               </Box>
-              <Box sx={{ display: "flex", gap: 1 }}>
-                <Box
-                  sx={{
-                    width: "150px",
-                    height: "150px",
-                    border: "1px solid #282c34",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: "1rem",
-                    textAlign: "center",
-                    background: "#bec0c6ff",
-                    color: "white",
-                  }}
-                >
-                  <Typography
-                    variant="body1"
-                    sx={{ color: "inherit", fontWeight: 500 }}
-                  >
-                    Solution Partner
-                  </Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{ color: "inherit", mt: 1, fontWeight: 500 }}
-                  >
-                    COMOS Industry Solutions
-                  </Typography>
-                </Box>
-                <Box
-                  sx={{
-                    width: "150px",
-                    height: "150px",
-                    border: "1px solid #282c34",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: "1rem",
-                    textAlign: "center",
-                    cursor: "pointer",
-                  }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.open(
-                      "https://www.siemens.com/in/en/products/automation/industry-software/plant-engineering-software-comos.html",
-                      "_blank"
-                    );
-                  }}
-                >
-                  <Typography
-                    variant="h6"
+              <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                {partnerBoxes.map((box, index) => (
+                  <Box
+                    key={index}
                     sx={{
-                      color: "var(--color-coral-interactive)",
-                      fontWeight: 700,
+                      width: "150px",
+                      height: "150px",
+                      border: "1px solid var(--color-primary)",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      padding: "1rem",
+                      textAlign: "center",
+                      background: box.bg || "transparent",
+                      color: box.textColor || "inherit",
+                      cursor: box.clickable ? "pointer" : "default",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        boxShadow: box.clickable
+                          ? "inset 0 0 10px 6px rgba(0, 0, 0, 0.2)"
+                          : "none",
+                      },
                     }}
+                    onClick={box.onClick}
                   >
-                    SIEMENS
-                  </Typography>
-                </Box>
+                    <Typography
+                      variant={box.subtitle ? "body1" : "h6"}
+                      sx={{
+                        fontWeight: 500,
+                        lineHeight: 1.2,
+                        color: "inherit",
+                      }}
+                    >
+                      {box.title}
+                    </Typography>
+
+                    {box.subtitle && (
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          mt: 1,
+                          fontWeight: 500,
+                          lineHeight: 1.2,
+                          color: "inherit",
+                        }}
+                      >
+                        {box.subtitle}
+                      </Typography>
+                    )}
+                  </Box>
+                ))}
               </Box>
             </Box>
           </Grid>
@@ -145,29 +197,28 @@ const Footer = () => {
                   NM Technocrafts
                 </Typography>
                 <Box display="flex" flexDirection="column" gap={1}>
-                  <Link href="/siemens-comos" className={styles.link}>
-                    ▶ SIEMENS COMOS
-                  </Link>
-                  <Link href="/asset-management" className={styles.link}>
-                    ▶ How COMOS Looks for Asset Management and Design
-                    Engineering
-                  </Link>
-                  <Link href="/operation-maintenance" className={styles.link}>
-                    ▶ How COMOS looks for Operations and Maintenance
-                  </Link>
-                  <Link href="/operator-training" className={styles.link}>
-                    ▶ Operator Training Simulator for Engineering and Operations
-                    phase of Plant
-                  </Link>
-                  <Link href="/digital-operator-rounds" className={styles.link}>
-                    ▶ Digital Operator Rounds / Mobile Worker
-                  </Link>
-                  <Link href="/iDB-plant-engineering" className={styles.link}>
-                    ▶ Complete customised iDB for plant engineering
-                  </Link>
-                  <Link href="/training" className={styles.link}>
-                    ▶ Training
-                  </Link>
+                  {nmLinks.map((item, index) => (
+                    <Box
+                      key={index}
+                      sx={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: 1,
+                        cursor: "pointer",
+                      }}
+                      onClick={() => navigate(item.url)}
+                    >
+                      <ArrowRightIcon
+                        fontSize="small"
+                        sx={{
+                          mt: 0.5,
+                        }}
+                      />
+                      <Box variant="body1" className={styles.link}>
+                        {item.label}
+                      </Box>
+                    </Box>
+                  ))}
                 </Box>
               </Grid>
 
@@ -176,19 +227,35 @@ const Footer = () => {
                   Contact
                 </Typography>
                 <Box display="flex" flexDirection="column" gap={1}>
-                  <Link href="/about-us" className={styles.link}>
-                    ▶ About us
-                  </Link>
-                  <Link href="/contact-us" className={styles.link}>
-                    ▶ Contact us
-                  </Link>
+                  {contactLinks.map((item, index) => (
+                    <Box
+                      key={index}
+                      sx={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: 1,
+                        cursor: "pointer",
+                      }}
+                      onClick={() => navigate(item.url)}
+                    >
+                      <ArrowRightIcon
+                        fontSize="small"
+                        sx={{
+                          mt: 0.5,
+                        }}
+                      />
+                      <Box variant="body1" className={styles.link}>
+                        {item.label}
+                      </Box>
+                    </Box>
+                  ))}
                 </Box>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
 
-        <Box mt={4} borderTop="1px solid #282c34" />
+        <Box mt={4} borderTop="1px solid var(--color-primary)" />
 
         <Box
           mt={2}
