@@ -41,7 +41,7 @@ const menuData = [
   },
 ];
 
-const DesktopDrawer = ({ open, close, subMenu,isScrolled }) => {
+const DesktopDrawer = ({ open, close, subMenu }) => {
   const [hoveredSubMenu, setHoveredSubMenu] = useState(null);
   const navigate = useNavigate();
 
@@ -70,7 +70,7 @@ const DesktopDrawer = ({ open, close, subMenu,isScrolled }) => {
           height: "100%",
           backgroundColor: "var(--color-primary-light)",
           color: "var(--color-secondary-light)",
-          top: isScrolled ? "70px" : "118px",
+          top: "103px",
         },
       }}
       open={open}

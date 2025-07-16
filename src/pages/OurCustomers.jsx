@@ -32,12 +32,12 @@ const OurCustomers = () => {
             <Box
               sx={{
                 p: 2,
-                height: "120px",
+                height: "80px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 "& img": {
-                  maxWidth: "100%",
+                  maxWidth: "80%",
                   maxHeight: "80px",
                   filter: "grayscale(100%)",
                   transition: "filter 0.3s ease",
