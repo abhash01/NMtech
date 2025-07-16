@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
 import {
   Box,
   Typography,
   Container,
-  useMediaQuery,
   Grid,
-  styled,
+  Card,
+  CardContent,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   List,
   ListItem,
+  ListItemIcon,
   ListItemText,
+  Divider,
 } from "@mui/material";
-import TopNav from "../../components/Navbar/TopNav/TopNav";
-import SubNav from "../../components/Navbar/SubNav/SubNav";
-import Footer from "../Footer/Footer";
+import { ExpandMore, CheckCircle } from "@mui/icons-material";
+import MainLayout from "../layouts/MainLayout";
 
 const trainingData = [
   {
@@ -56,8 +59,7 @@ const trainingData = [
     ],
   },
   {
-    title:
-      "Smart Plant Solutions from HEXAGON [both User level and Admin Levels]",
+    title: "Smart Plant Solutions from HEXAGON [User & Admin Level]",
     subtopics: [
       { subtitle: "SPPID" },
       { subtitle: "SPI" },
@@ -67,150 +69,113 @@ const trainingData = [
   {
     title: "AVEVA Engineering Solutions",
     subtopics: [
-      {
-        subtitle: "AVEVA P&ID and Diagrams",
-      },
-      {
-        subtitle: "AVEVA Engineering",
-      },
-      {
-        subtitle: "AVEVA E3D",
-      },
-      {
-        subtitle: "AVEVA NET",
-      },
+      { subtitle: "AVEVA P&ID and Diagrams" },
+      { subtitle: "AVEVA Engineering" },
+      { subtitle: "AVEVA E3D" },
+      { subtitle: "AVEVA NET" },
     ],
   },
 ];
 
-const ImageCard = styled(Box)(({ theme }) => ({
-  width: "100%",
-  borderRadius: theme.shape.borderRadius * 2,
-  boxShadow: "0px 6px 24px rgba(0, 0, 0, 0.12)",
-  border: `1px solid ${theme.palette.divider}`,
-  backgroundColor: theme.palette.background.paper,
-  objectFit: "cover",
-  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-  cursor: "pointer",
-
-  "&:hover": {
-    transform: "scale(1.03)",
-    boxShadow: "0px 10px 32px rgba(0, 0, 0, 0.2)",
-  },
-}));
-
 const Training = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const isMobileView = useMediaQuery("(max-width: 991px)");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const getScrolledHeight = () => {
-    return isMobileView ? "75px" : isScrolled ? "78px" : "150px";
-  };
   return (
-    <>
-      <Container
-        maxWidth
-        disableGutters
-        style={{
-          backgroundColor: "var(--color-primary)",
-          position: "sticky",
-          top: 0,
-          zIndex: 9999,
-        }}
-      >
-        <TopNav isMenuVisible={isMobileView} />
-      </Container>
-
-      <Container
-        maxWidth
-        disableGutters
-        sx={{
-          position: "sticky",
-          top: `${getScrolledHeight()}`,
-          zIndex: 999,
-          background: "var(--color-primary-light)",
-        }}
-      >
-        {/* <SubNav scrolledHeight={getScrolledHeight()} /> */}
-      </Container>
-
-      <Container maxWidth="md" sx={{ py: 6, paddingInline: "1rem !important" }}>
-        <Box>
+    <MainLayout>
+      <Container maxWidth="md" sx={{ py: 6 }}>
+        <Box textAlign="center" mb={4}>
           <Typography
-            variant="h5"
-            component="h2"
-            sx={{ color: "var( --color-primary-light)" }}
-            gutterBottom
-            textAlign="center"
+            variant="h4"
             fontWeight={600}
+            color="var(--color-primary-light)"
+            gutterBottom
           >
             Training
           </Typography>
-          <Typography
-            variant="body1"
-            component="h2"
-            sx={{ color: "var( --color-dark)" }}
-            gutterBottom
-            textAlign="center"
-            fontWeight={400}
-          >
-            We provide training on below Engineering Software Solutions:
+          <Typography variant="h6" color="text.secondary">
+            Explore our training programs on leading engineering software
+            solutions.
           </Typography>
-
-          <Grid container spacing={2} sx={{ marginTop: "1rem" }}>
-            {trainingData.map((section, i) => (
-              <Box
-                key={i}
-                sx={{ mb: 4 }}
-                borderBottom={1}
-                borderColor="divider"
-                width={"100%"}
-              >
-                <Typography variant="h6" fontWeight={600} sx={{ mb: 1 }}>
-                  • {section.title}
-                </Typography>
-
-                {section.subtopics.map((sub, j) => (
-                  <Box key={j} sx={{ pl: 2, mb: 0 }}>
-                    {sub.subtitle && (
-                      <Typography
-                        variant="subtitle1"
-                        fontWeight={500}
-                        sx={{ mb: 0 }}
-                      >
-                        ○ {sub.subtitle}
-                      </Typography>
-                    )}
-                    <List dense sx={{ listStyleType: "square", pl: 4 }}>
-                      {sub.points &&
-                        sub.points.map((point, k) => (
-                          <ListItem
-                            key={k}
-                            sx={{ display: "list-item", py: 0 }}
-                          >
-                            <ListItemText primary={point} />
-                          </ListItem>
-                        ))}
-                    </List>
-                  </Box>
-                ))}
-              </Box>
-            ))}
-          </Grid>
+          <Divider
+            sx={{
+              width: "280px",
+              height: "4px",
+              backgroundColor: "var(--color-primary-light)",
+              margin: "1rem auto",
+              borderRadius: "2px",
+              boxShadow: 8,
+            }}
+          />
         </Box>
-      </Container>
 
-      <Footer />
-    </>
+        <Grid container spacing={4}>
+          {trainingData.map((section, i) => (
+            <Grid size={12} key={i}>
+              <Card
+                sx={{
+                  height: "100%",
+                  borderRadius: 3,
+                  boxShadow: 4,
+                  transition: "0.3s",
+                  color: "var( --color-primary)",
+                  bgcolor: "var(--color-primary-light)",
+                  "&:hover": { boxShadow: 8 },
+                }}
+              >
+                <CardContent>
+                  <Typography variant="h6" fontWeight={600} gutterBottom>
+                    {section.title}
+                  </Typography>
+
+                  {section.subtopics.map((sub, j) => (
+                    <Accordion
+                      key={j}
+                      disableGutters
+                      sx={{
+                        boxShadow: "none",
+                        borderBottom: "1px solid var(--color-primary)",
+                        bgcolor: "transparent",
+                        color: "var(--color-primary)",
+                        "&:last-of-type": {
+                          borderBottom: "none",
+                        },
+                      }}
+                    >
+                      <AccordionSummary
+                        expandIcon={
+                          sub.points ? (
+                            <ExpandMore
+                              sx={{ color: "var(--color-primary)" }}
+                            />
+                          ) : null
+                        }
+                      >
+                        <Typography fontWeight={500}>{sub.subtitle}</Typography>
+                      </AccordionSummary>
+                      {sub.points && (
+                        <AccordionDetails>
+                          <List dense>
+                            {sub.points.map((point, k) => (
+                              <ListItem key={k} disablePadding>
+                                <ListItemIcon>
+                                  <CheckCircle
+                                    sx={{ color: "var(--color-primary)" }}
+                                    fontSize="small"
+                                  />
+                                </ListItemIcon>
+                                <ListItemText primary={point} />
+                              </ListItem>
+                            ))}
+                          </List>
+                        </AccordionDetails>
+                      )}
+                    </Accordion>
+                  ))}
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </MainLayout>
   );
 };
 
