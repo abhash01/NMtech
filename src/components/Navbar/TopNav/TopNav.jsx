@@ -30,7 +30,6 @@ const TopNav = () => {
   const containerRef = useRef(null);
   const menuRef = useRef(null);
   const firstItemRef = useRef(null);
-  const [translateX, setTranslateX] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [subDrawerOpen, setSubDrawerOpen] = useState(false);
   const [nestedDrawerOpen, setNestedDrawerOpen] = useState(false);
@@ -101,31 +100,6 @@ const TopNav = () => {
     navigate("/");
   };
 
-  useEffect(() => {
-    if (!isScrolled) return;
-    const menu = menuRef.current;
-    const firstItem = firstItemRef.current;
-    if (!menu || !firstItem) return;
-
-    const firstItemWidth = firstItem.offsetWidth + 16;
-    const duration = 1000;
-    const startTime = performance.now();
-
-    const animate = (currentTime) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const distance = firstItemWidth * progress;
-
-      setTranslateX(-distance);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  }, [isScrolled]);
-
   return (
     <>
       <Box
@@ -133,6 +107,7 @@ const TopNav = () => {
           isScrolled && isDesktop ? styles.hidden : ""
         }`}
         ref={containerRef}
+        boxShadow={5}
       >
         <Box
           className={styles.topNav}
@@ -141,7 +116,7 @@ const TopNav = () => {
               ? "0.25rem"
               : isMobile
               ? "0.25rem"
-              : "2rem",
+              : undefined,
           }}
         >
           <Box
@@ -163,7 +138,7 @@ const TopNav = () => {
               orientation="vertical"
               flexItem
               sx={{
-                backgroundColor: "var(--color-coral-interactive)",
+                backgroundColor: "var(--color-primary-light)",
                 width: "1px",
                 height: "24px",
                 alignSelf: "center",
@@ -194,34 +169,35 @@ const TopNav = () => {
               </Typography>
             </IconButton>
           </Box> */}
-        </Box>
-        <Box className={styles.menu}>
-          {topNavItem.map((item, index) => (
-            <Typography
-              key={index}
-              component="span"
-              className={`${item.isActive ? styles.active : ""}`}
-              onClick={() =>
-                item.title === "Home"
-                  ? navigate("/")
-                  : item.url
-                  ? navigate(item.url, { replace: true })
-                  : handleDesktopDrawerOpen(item)
-              }
-            >
-              {item.title}
-            </Typography>
-          ))}
+          {/* </Box> */}
+          <Box className={styles.menu}>
+            {topNavItem.map((item, index) => (
+              <Typography
+                key={index}
+                component="span"
+                className={`${item.isActive ? styles.active : ""}`}
+                onClick={() =>
+                  item.title === "Home"
+                    ? navigate("/")
+                    : item.url
+                    ? navigate(item.url, { replace: true })
+                    : handleDesktopDrawerOpen(item)
+                }
+              >
+                {item.title}
+              </Typography>
+            ))}
+          </Box>
         </Box>
       </Box>
       <Box
         className={`${styles.scrollNav} ${!isScrolled ? styles.hidden : ""}`}
+        boxShadow={5}
       >
-        <Box className={styles.menuWrapper}>
+        <Box className={`${styles.menuWrapper} ${isScrolled ? styles.activess : ""}`}>
           <Box
             className={styles.menu}
             ref={menuRef}
-            style={{ transform: `translateX(${translateX}px)` }}
           >
             {topNavItem.map((item, index) => (
               <Typography
@@ -242,24 +218,6 @@ const TopNav = () => {
             ))}
           </Box>
         </Box>
-        {/* <Box className={styles.icons}>
-          <IconButton>
-            <Search htmlColor="var(--color-primary-light)" />
-          </IconButton>
-          <Typography className={styles.lang}>EN</Typography>
-          <IconButton>
-            <ShoppingCart htmlColor="var(--color-primary-light)" />
-          </IconButton>
-          <IconButton>
-            <PersonOutline htmlColor="var(--color-primary-light)" />
-            <Typography
-              className={styles.login}
-              color="var(--color-primary-light)"
-            >
-              Log in
-            </Typography>
-          </IconButton>
-        </Box> */}
       </Box>
 
       {/* main drawer */}
