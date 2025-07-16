@@ -1,15 +1,6 @@
 import { Box, Typography, Container, Divider, Grid } from "@mui/material";
 import MainLayout from "../layouts/MainLayout";
-import cyient from "../../assets/customerLogo/CYIENT.jpg";
-import indianoil from "../../assets/customerLogo/indianoil.png";
-import cipla from "../../assets/customerLogo/cipla.png";
-import siemens from "../../assets/customerLogo/siemens.jpg";
-import aker from "../../assets/customerLogo/aker.png";
-import bharat from "../../assets/customerLogo/bharat.png";
-import nagarpalika from "../../assets/customerLogo/nagarpalika.png";
-import jsw from "../../assets/customerLogo/jsw.png";
-import valmet from "../../assets/customerLogo/valmet.png";
-import esi from "../../assets/customerLogo/esi.png";
+import OurCustomers from "../OurCustomers";
 
 const aboutContent = {
   title: "Your Trusted Partner in Engineering Excellence",
@@ -37,24 +28,6 @@ const aboutContent = {
     },
   ],
 };
-
-const customerLogos = [
-  { name: "IndianOil", logo: indianoil },
-  { name: "Cipla", logo: cipla },
-  { name: "Siemens", logo: siemens },
-  { name: "AkerSolutions", logo: aker },
-  { name: "Bharat Petroleum", logo: bharat },
-  { name: "NagarPalika", logo: nagarpalika },
-  { name: "JSW", logo: jsw },
-  { name: "Valmet", logo: valmet },
-  { name: "ESI", logo: esi },
-  { name: "CYIENT", logo: cyient },
-  { name: "Petrofac", logo: "/logos/petrofac.png" },
-  { name: "SNC-LAVALIN", logo: "/logos/snc-lavalin.png" },
-  { name: "DANIELI CORUS", logo: "/logos/danieli-corus.png" },
-  { name: "G. R. ENGINEERING", logo: "/logos/gr-engineering.png" },
-  { name: "AIRFLOW EQUIPMENTS", logo: "/logos/airflow-equipments.png" },
-];
 
 const AboutUs = () => {
   return (
@@ -117,64 +90,7 @@ const AboutUs = () => {
             </Box>
           ))}
         </Box>
-
-        <Box sx={{ textAlign: "center", mt: 6, mb: 4 }}>
-          <Typography
-            variant="h5"
-            fontWeight={600}
-            color="var(--color-primary-light)"
-            gutterBottom
-          >
-            Our Valued Customers
-          </Typography>
-          <Divider
-            sx={{
-              width: "220px",
-              height: "2px",
-              backgroundColor: "var(--color-primary-light)",
-              margin: "1rem auto",
-              borderRadius: "2px",
-              boxShadow: 8,
-              mb: 4,
-            }}
-          />
-
-          <Grid
-            container
-            spacing={4}
-            justifyContent="center"
-            alignItems="center"
-          >
-            {customerLogos.map((customer) => (
-              <Grid size={{ xs: 6, sm: 4, md: 3 }} key={customer.name}>
-                <Box
-                  sx={{
-                    p: 2,
-                    height: "120px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    "& img": {
-                      maxWidth: "100%",
-                      maxHeight: "80px",
-                      filter: "grayscale(100%)",
-                      transition: "filter 0.3s ease",
-                      "&:hover": {
-                        filter: "grayscale(0%)",
-                      },
-                    },
-                  }}
-                >
-                  <img
-                    src={customer.logo}
-                    alt={customer.name}
-                    title={customer.name}
-                  />
-                </Box>
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+        <OurCustomers />
       </Container>
     </MainLayout>
   );

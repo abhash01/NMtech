@@ -1,6 +1,6 @@
 .footerContainer {
-  background-color: var(--color-primary);
-  color: var(--color-primary-light);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
   padding: 1.5rem;
   padding-top: 3rem;
 
@@ -9,6 +9,15 @@
     max-width: 1280px;
     margin: 0 auto;
 
+    .iconButton {
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #ffffff;
+        color: #000000; // optional: change icon color
+      }
+    }
+
     .link {
       position: relative;
       text-decoration: none !important;
@@ -16,6 +25,7 @@
       display: inline-block !important;
       padding-bottom: 4px;
       align-self: flex-start;
+      color: var(--color-primary) !important;
 
       &::after {
         content: "";
@@ -24,7 +34,7 @@
         height: 1px;
         bottom: 0;
         left: 0;
-        background-color: var(--color-primary-light);
+        background-color: var(--color-primary);
         transition: width 0.5s ease;
       }
 

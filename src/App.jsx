@@ -5,6 +5,7 @@ import MainSection from "./pages/MainSection/MainSection";
 import SectionAhead from "./components/SectionA/SectionAhead";
 import SectionVideo from "./components/SectionB/SectionVideo";
 import MainLayout from "./pages/layouts/MainLayout";
+import OurCustomers from "./pages/OurCustomers";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <CardSection />
         <SectionAhead />
         <DeepenKnowledge />
+        <OurCustomers />
       </MainLayout>
     </>
   );
