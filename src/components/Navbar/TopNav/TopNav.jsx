@@ -148,28 +148,6 @@ const TopNav = () => {
             />
             <Box className={styles.logo} onClick={handleLogoClick}></Box>
           </Box>
-          {/* <Box className={styles.icons}>
-            <IconButton>
-              <Search htmlColor="var( --color-primary-light)" />
-            </IconButton>
-            <Typography className={styles.lang}>EN</Typography>
-            <IconButton>
-              <ShoppingCart
-                variant="outlined"
-                htmlColor="var( --color-primary-light)"
-              />
-            </IconButton>
-            <IconButton>
-              <PersonOutline htmlColor="var( --color-primary-light)" />
-              <Typography
-                className={styles.login}
-                color="var(--color-primary-light)"
-              >
-                Log in
-              </Typography>
-            </IconButton>
-          </Box> */}
-          {/* </Box> */}
           <Box className={styles.menu}>
             {topNavItem.map((item, index) => (
               <Typography
@@ -399,7 +377,6 @@ const TopNav = () => {
           open={openDesktopMenu}
           subMenu={subMenu}
           close={handleDesktopDraweClose}
-          isScrolled={isScrolled}
         />
       )}
     </>
