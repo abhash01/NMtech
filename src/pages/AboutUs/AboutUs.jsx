@@ -53,7 +53,7 @@ const AboutUs = () => {
               height: "4px",
               backgroundColor: "var(--color-primary-light)",
               borderRadius: "2px",
-              boxShadow: 8,
+              boxShadow: "0px 7px 11px 1px var(--color-primary-light)",
               margin: "1rem auto",
             }}
           />

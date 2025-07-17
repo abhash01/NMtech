@@ -7,6 +7,7 @@ import {
   Button,
   TextField,
   Grid,
+  Divider,
 } from "@mui/material";
 import MainLayout from "../layouts/MainLayout";
 
@@ -47,21 +48,23 @@ const ContactUs = () => {
           fontWeight={600}
           color="var(--color-primary-light)"
           align="center"
-          gutterBottom
+          // gutterBottom
         >
           CONTACT FORM
         </Typography>
-        <Box
+        <Divider
           sx={{
-            height: "3px",
-            width: "60px",
-            background: "var(--color-primary-light)",
-            mx: "auto",
-            mb: 4,
+            width: "150px",
+            height: "4px",
+            backgroundColor: "var(--color-primary-light)",
+            borderRadius: "2px",
+            boxShadow: "0px 7px 11px 1px var(--color-primary-light)",
+            margin: "1rem auto",
           }}
         />
 
         <Box
+          sx={{ paddingTop: "1rem" }}
           component="form"
           ref={formRef}
           onSubmit={handleSubmit}

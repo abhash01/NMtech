@@ -19,7 +19,14 @@ import eil from "../assets/customerLogo/eil.png";
 import toyo from "../assets/customerLogo/toyo.png";
 import gr from "../assets/customerLogo/gr.png";
 import airflow from "../assets/customerLogo/airflow.jpg";
-// import OurCustomers from "../OurCustomers";
+import img1 from "../assets/icons/img1.png";
+import img2 from "../assets/icons/img2.png";
+import img3 from "../assets/icons/img3.png";
+import img4 from "../assets/icons/img4.png";
+import img5 from "../assets/icons/img5.png";
+import img6 from "../assets/icons/img6.png";
+import img7 from "../assets/icons/img7.png";
+import img8 from "../assets/icons/img8.png";
 
 export const customerLogos = [
   { name: "IndianOil", logo: indianoil },
@@ -42,6 +49,43 @@ export const customerLogos = [
   { name: "Toyo", logo: toyo },
   { name: "G. R. ENGINEERING", logo: gr },
   { name: "AIRFLOW EQUIPMENTS", logo: airflow },
+];
+
+// servicesData.js
+export const servicesData = [
+  {
+    icon: img1,
+    title: "Digital Twin – Services",
+  },
+  {
+    icon: img2,
+    title:
+      "Reverse Engineering [3D Laser Scanning and Intelligent BIM 3D Modelling]",
+  },
+  {
+    icon: img3,
+    title: "Digitization of Plant Documentation",
+  },
+  {
+    icon: img4,
+    title: "BI Layer with integrated Dashboards",
+  },
+  {
+    icon: img6,
+    title: "Training [Various Industry practices and software solutions]",
+  },
+  {
+    icon: img5,
+    title: "Man-Power support and Drafting Services",
+  },
+  {
+    icon: img7,
+    title: "Engineering Software Customization and Integration Services",
+  },
+  {
+    icon: img8,
+    title: "NMT engagement as PIMO [Digital Project Execution]",
+  },
 ];
 
 export const topNavItem = [
@@ -139,7 +183,7 @@ export const topNavItem = [
       // },
     ],
   },
-  
+
   {
     title: "About us",
     isActive: false,
@@ -481,5 +525,3 @@ export const designData = [
     ],
   },
 ];
-
-
