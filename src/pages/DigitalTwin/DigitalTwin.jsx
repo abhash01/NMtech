@@ -4,16 +4,47 @@ import {
   Container,
   Divider,
   Grid,
+  styled,
   Typography,
 } from "@mui/material";
+import SlideInFromRight from "../../components/motions/SlideInFromRight";
+import SlideInFromLeft from "../../components/motions/SlideInFromLeft";
 import AnimatedArrow from "../../components/motions/AnimatedArrow";
 import digitalTwinInfoModel from "../../assets/digitalTwin/digital-twin-info-model.png";
 import digitalTwinInfoCycle from "../../assets/digitalTwin/digital-twin-info-cycle.png";
 import digitalTwinPump from "../../assets/digitalTwin/digital-twin-pump.png";
+import digitalProcessPiping from "../../assets/digitalTwin/process-piping.png";
+import digitalElectricalInstrument from "../../assets/digitalTwin/electrical-instrument.png";
+import digitalProjectManagement from "../../assets/digitalTwin/project-mgment.png";
+import digitalCommission from "../../assets/digitalTwin/commission.png";
+import digitalIntegratedAsset from "../../assets/digitalTwin/integrated-asset.png";
+import digitalDashboard from "../../assets/digitalTwin/dashboard.png";
+import digitalPaperless from "../../assets/digitalTwin/paperless.png";
+
+const StyledCardMedia = styled(CardMedia, {
+  shouldForwardProp: (prop) =>
+    prop !== "maxWidth" && prop !== "paddingTop" && prop !== "border",
+})(({ maxWidth, paddingTop, border }) => ({
+  ...(maxWidth && { maxWidth }),
+  ...(paddingTop && { paddingTop }),
+  ...(border && { border }),
+  width: "100%",
+  height: "auto",
+  margin: "0 auto",
+  borderRadius: "8px",
+  transition: "transform 0.3s ease",
+  "&:hover": {
+    transform: "scale(1.03)",
+  },
+}));
 
 const DigitalTwin = () => {
   return (
-    <Box sx={{ py: 6, backgroundColor: "var(--color-primary)" }}>
+    <Box
+      sx={{ py: 6, backgroundColor: "var(--color-primary)" }}
+      id="digital-twin"
+      style={{ paddingTop: "100px" }}
+    >
       <Container>
         <Box textAlign="center" mb={4}>
           <Typography
@@ -42,29 +73,19 @@ const DigitalTwin = () => {
           />
         </Box>
         <Box sx={{ mb: 4 }}>
-          <CardMedia
+          <StyledCardMedia
             component="img"
             image={digitalTwinInfoModel}
             alt="Digital Twin"
-            sx={{
-              width: "100%",
-              maxWidth: "880px",
-              height: "auto",
-              margin: "0 auto",
-            }}
+            maxWidth="880px"
           />
           <AnimatedArrow size="3rem" direction="down" />
-          <CardMedia
+          <StyledCardMedia
             component="img"
             image={digitalTwinInfoCycle}
-            alt="Digital Twin"
-            sx={{
-              width: "100%",
-              maxWidth: "720px",
-              height: "auto",
-              margin: "0 auto",
-              paddingTop: "1.5rem",
-            }}
+            alt="Digital Twin Cycle"
+            paddingTop="1.5rem"
+            maxWidth="640px"
           />
         </Box>
         <Box sx={{ mb: 4 }}>
@@ -112,7 +133,9 @@ const DigitalTwin = () => {
                       Motor Capacity
                     </span>
                     ,
-                    <ul>
+                    <ul
+                      style={{ paddingLeft: "1.5rem", marginBlock: "0.5rem" }}
+                    >
                       <li>
                         <span style={{ color: "#3399cc" }}>
                           Cable <i>(proper type and Size)</i>
@@ -161,20 +184,81 @@ const DigitalTwin = () => {
               </Grid>
             </Grid>
             <Grid size={{ xs: 12, sm: 6 }}>
-              <CardMedia
+              <StyledCardMedia
                 component="img"
                 image={digitalTwinPump}
-                alt="Digital Twin"
-                sx={{
-                  width: "100%",
-                  maxWidth: "400px",
-                  height: "auto",
-                  margin: "0 auto",
-                  paddingTop: "1.5rem",
-                }}
+                alt="Digital Twin Pump"
+                maxWidth="440px"
+                border="1px solid var(--color-primary-light)"
               />
             </Grid>
           </Grid>
+        </Box>
+        <Box sx={{ mb: 4 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "center",
+              gap: 2,
+              mb: 1,
+            }}
+          >
+            <AnimatedArrow size="1.5rem" direction="left" distance={10} />
+            <Typography
+              variant="h6"
+              sx={{ color: "var(--color-primary-light)", fontWeight: 700 }}
+            >
+              Engineering Design Documents – Integrated in One DB – One UI.
+            </Typography>
+          </Box>
+          <SlideInFromRight
+            title="Process, Mechanical and piping documents [intelligent form]"
+            image={digitalProcessPiping}
+          />
+          <SlideInFromLeft
+            title="Electrical and Instrumentation"
+            image={digitalElectricalInstrument}
+          />
+          <SlideInFromRight
+            title="Project Management, Procurement, 3D and 4D"
+            image={digitalProjectManagement}
+          />
+          <SlideInFromLeft
+            title="Commissioning and Start-up Management"
+            image={digitalCommission}
+          />
+        </Box>
+        <Box sx={{ mb: 4 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "start",
+              alignItems: "center",
+              gap: 2,
+              mb: 1,
+            }}
+          >
+            <AnimatedArrow size="1.5rem" direction="left" distance={10} />
+            <Typography
+              variant="h6"
+              sx={{ color: "var(--color-primary-light)", fontWeight: 700 }}
+            >
+              Integrated Plant Maintenance and Operations – in One DB – One UI
+            </Typography>
+          </Box>
+          <SlideInFromRight
+            title="Integrated Asset Performance Management"
+            image={digitalIntegratedAsset}
+          />
+          <SlideInFromLeft
+            title="Dashboards and Visualization"
+            image={digitalDashboard}
+          />
+          <SlideInFromRight
+            title="Paperless operations and maintenance"
+            image={digitalPaperless}
+          />
         </Box>
       </Container>
     </Box>
