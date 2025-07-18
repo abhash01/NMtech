@@ -1,8 +1,15 @@
 import { Box, Typography } from "@mui/material";
 
-const ServiceCard = ({ icon, title }) => {
+const ServiceCard = ({ icon, title, targetId }) => {
+  const handleClick = () => {
+    const section = document.getElementById(targetId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <Box
+      onClick={handleClick}
       sx={{
         display: "flex",
         alignItems: "center",

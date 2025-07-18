@@ -56,6 +56,7 @@ export const servicesData = [
   {
     icon: img1,
     title: "Digital Twin – Services",
+    id: "digital-twin",
   },
   {
     icon: img2,

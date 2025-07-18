@@ -9,7 +9,7 @@ const ServicesGrid = () => {
         <Grid container spacing={4}>
           {servicesData.map((item, idx) => (
             <Grid key={idx} size={{ xs: 12, sm: 6, md: 4 }}>
-              <ServiceCard icon={item.icon} title={item.title} />
+              <ServiceCard icon={item.icon} title={item.title} targetId={item.id} />
             </Grid>
           ))}
         </Grid>
