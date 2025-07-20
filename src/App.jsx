@@ -9,6 +9,7 @@ import OurCustomers from "./pages/OurCustomers";
 import HeroSectionNew from "./pages/HeroNew/HeroSectionNew";
 import ServicesGrid from "./pages/ServicesGrid/ServiceGrid";
 import DigitalTwin from "./pages/DigitalTwin/DigitalTwin";
+import ReverseEngg from "./pages/ReverseEngg/ReverseEngg";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <HeroSectionNew />
         <ServicesGrid />
         <DigitalTwin />
+        <ReverseEngg />
         <HeroSection />
         <MainSection />
         <SectionVideo />
