@@ -43,7 +43,7 @@ const DigitalTwin = () => {
     <Box
       sx={{ py: 6, backgroundColor: "var(--color-primary)" }}
       id="digital-twin"
-      style={{ paddingTop: "100px" }}
+      style={{ paddingTop: "110px" }}
     >
       <Container>
         <Box textAlign="center" mb={4}>
@@ -194,7 +194,7 @@ const DigitalTwin = () => {
             </Grid>
           </Grid>
         </Box>
-        <Box sx={{ mb: 4 }}>
+        <Box sx={{ mb: 4, overflow: "hidden" }}>
           <Box
             sx={{
               display: "flex",
@@ -212,6 +212,7 @@ const DigitalTwin = () => {
               Engineering Design Documents – Integrated in One DB – One UI.
             </Typography>
           </Box>
+
           <SlideInFromRight
             title="Process, Mechanical and piping documents [intelligent form]"
             image={digitalProcessPiping}
@@ -229,7 +230,7 @@ const DigitalTwin = () => {
             image={digitalCommission}
           />
         </Box>
-        <Box sx={{ mb: 4 }}>
+        <Box sx={{ mb: 4, overflow: "hidden" }}>
           <Box
             sx={{
               display: "flex",

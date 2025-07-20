@@ -62,6 +62,7 @@ export const servicesData = [
     icon: img2,
     title:
       "Reverse Engineering [3D Laser Scanning and Intelligent BIM 3D Modelling]",
+    id: "reverse-engg",
   },
   {
     icon: img3,
