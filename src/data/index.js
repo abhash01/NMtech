@@ -67,10 +67,12 @@ export const servicesData = [
   {
     icon: img3,
     title: "Digitization of Plant Documentation",
+    id: "digitization",
   },
   {
     icon: img4,
     title: "BI Layer with integrated Dashboards",
+    id: "business-intelligence",
   },
   {
     icon: img6,
@@ -87,6 +89,7 @@ export const servicesData = [
   {
     icon: img8,
     title: "NMT engagement as PIMO [Digital Project Execution]",
+    id: "nmt-engagement",
   },
 ];
 
