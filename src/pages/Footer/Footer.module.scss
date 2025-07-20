@@ -1,6 +1,6 @@
 .footerContainer {
-  background-color: var(--color-primary-light);
-  color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-primary-light);
   padding: 1.5rem;
   padding-top: 3rem;
 
@@ -18,14 +18,27 @@
       }
     }
 
+    .logo {
+      background-image: url("../../assets/icons/nmtechLogo.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 160px;
+      height: 90px;
+      cursor: pointer;
+
+      @media (max-width: 450px) {
+        width: 120px;
+        height: 70px;
+      }
+    }
+
     .link {
       position: relative;
       text-decoration: none !important;
-      color: var(--color-primary-light) !important;
       display: inline-block !important;
       padding-bottom: 4px;
       align-self: flex-start;
-      color: var(--color-primary) !important;
+      color: var(--color-primary-light) !important;
 
       &::after {
         content: "";
@@ -34,7 +47,7 @@
         height: 1px;
         bottom: 0;
         left: 0;
-        background-color: var(--color-primary);
+        background-color: var(--color-primary-light);
         transition: width 0.5s ease;
       }
 

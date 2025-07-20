@@ -44,7 +44,7 @@ const partnerBoxes = [
     title: "Solution Partner",
     subtitle: "COMOS Industry Solutions",
     bg: "#aaacb047",
-    textColor: "white",
+    textColor: "var(--color-primary-light)",
     clickable: false,
   },
   {
@@ -67,9 +67,10 @@ const Footer = () => {
       <Box className={styles.innerContainer}>
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, sm: 4, lg: 3.5 }}>
-            <Typography variant="h6" fontWeight="bold">
+            {/* <Typography variant="h6" fontWeight="bold">
               NM Technocrafts
-            </Typography>
+            </Typography> */}
+            <Box className={styles.logo} onClick={() => navigate("/")}></Box>
             <Box
               display={"flex"}
               flexDirection="column"
@@ -135,7 +136,7 @@ const Footer = () => {
                     sx={{
                       width: "150px",
                       height: "150px",
-                      border: "1px solid var(--color-primary)",
+                      border: "1px solid var(--color-primary-light)",
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
@@ -255,7 +256,7 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        <Box mt={4} borderTop="1px solid var(--color-primary)" />
+        <Box mt={4} borderTop="1px solid var(--color-primary-light)" />
 
         <Box
           mt={2}
@@ -265,7 +266,7 @@ const Footer = () => {
           flexWrap="wrap"
           gap={2}
         >
-          <Typography variant="body1">
+          <Typography variant="body1" fontWeight="bold">
             © NM Technocrafts 2025 | Crafting new technologies for you
           </Typography>
         </Box>
