@@ -39,11 +39,11 @@ const OurCustomers = () => {
                 "& img": {
                   maxWidth: "80%",
                   maxHeight: "80px",
-                  filter: "grayscale(100%)",
-                  transition: "filter 0.3s ease",
-                  "&:hover": {
-                    filter: "grayscale(0%)",
-                  },
+                  // filter: "grayscale(100%)",
+                  // transition: "filter 0.3s ease",
+                  // "&:hover": {
+                  //   filter: "grayscale(0%)",
+                  // },
                 },
               }}
             >

@@ -1,10 +1,10 @@
 import AssetImage from "../assets/siemensComos/Picture3.jpg";
 import cyient from "../assets/customerLogo/cyient.png";
-import indianoil from "../assets/customerLogo/indianoil.png";
+// import indianoil from "../assets/customerLogo/indianoil.png";
 import cipla from "../assets/customerLogo/cipla.png";
 import siemens from "../assets/customerLogo/siemens.png";
-import aker from "../assets/customerLogo/aker.png";
-import bharat from "../assets/customerLogo/bharat.png";
+// import aker from "../assets/customerLogo/aker.png";
+// import bharat from "../assets/customerLogo/bharat.png";
 import nagarpalika from "../assets/customerLogo/nagarpalika.png";
 import jsw from "../assets/customerLogo/jsw.png";
 import valmet from "../assets/customerLogo/valmet.png";
@@ -13,9 +13,9 @@ import powergrid from "../assets/customerLogo/powergrid.png";
 import thyss from "../assets/customerLogo/thyss.png";
 import petrofac from "../assets/customerLogo/Petrofac.svg";
 import snc from "../assets/customerLogo/snc.svg";
-import danieli from "../assets/customerLogo/danieli.webp";
+// import danieli from "../assets/customerLogo/danieli.webp";
 import kineco from "../assets/customerLogo/kineco.png";
-import eil from "../assets/customerLogo/eil.png";
+// import eil from "../assets/customerLogo/eil.png";
 import toyo from "../assets/customerLogo/toyo.png";
 import gr from "../assets/customerLogo/gr.png";
 import airflow from "../assets/customerLogo/airflow.jpg";
@@ -27,13 +27,21 @@ import img5 from "../assets/icons/img5.png";
 import img6 from "../assets/icons/img6.png";
 import img7 from "../assets/icons/img7.png";
 import img8 from "../assets/icons/img8.png";
+import deepak from "../assets/customerLogo/deepak.png";
+import indpro from "../assets/customerLogo/indpro.webp";
+import techint from "../assets/customerLogo/techint.png";
+import ecm from "../assets/customerLogo/ecm.png";
 
 export const customerLogos = [
-  { name: "IndianOil", logo: indianoil },
+  // { name: "IndianOil", logo: indianoil },
   { name: "Cipla", logo: cipla },
   { name: "Siemens", logo: siemens },
-  { name: "AkerSolutions", logo: aker },
-  { name: "Bharat Petroleum", logo: bharat },
+  {name:"Deepak Fertilizers", logo: deepak},
+  { name: "Indpro", logo: indpro },
+  { name: "Techint", logo: techint },
+  { name: "ECM", logo: ecm },
+  // { name: "AkerSolutions", logo: aker }, 
+  // { name: "Bharat Petroleum", logo: bharat },
   { name: "NagarPalika", logo: nagarpalika },
   { name: "JSW", logo: jsw },
   { name: "Valmet", logo: valmet },
@@ -43,9 +51,9 @@ export const customerLogos = [
   { name: "Thyssenkrupp", logo: thyss },
   { name: "Petrofac", logo: petrofac },
   { name: "SNC Lavalin", logo: snc },
-  { name: "DANIELI CORUS", logo: danieli },
+  // { name: "DANIELI CORUS", logo: danieli },
   { name: "Kineco", logo: kineco },
-  { name: "EIL", logo: eil },
+  // { name: "EIL", logo: eil },
   { name: "Toyo", logo: toyo },
   { name: "G. R. ENGINEERING", logo: gr },
   { name: "AIRFLOW EQUIPMENTS", logo: airflow },

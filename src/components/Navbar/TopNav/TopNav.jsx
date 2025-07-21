@@ -172,11 +172,12 @@ const TopNav = () => {
         className={`${styles.scrollNav} ${!isScrolled ? styles.hidden : ""}`}
         boxShadow={5}
       >
-        <Box className={`${styles.menuWrapper} ${isScrolled ? styles.activess : ""}`}>
-          <Box
-            className={styles.menu}
-            ref={menuRef}
-          >
+        <Box
+          className={`${styles.menuWrapper} ${
+            isScrolled ? styles.activess : ""
+          }`}
+        >
+          <Box className={styles.menu} ref={menuRef}>
             {topNavItem.map((item, index) => (
               <Typography
                 key={index}
@@ -195,6 +196,7 @@ const TopNav = () => {
               </Typography>
             ))}
           </Box>
+          <Box className={styles.logo} onClick={handleLogoClick}></Box>
         </Box>
       </Box>
 
