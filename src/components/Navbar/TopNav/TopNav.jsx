@@ -103,9 +103,7 @@ const TopNav = () => {
   return (
     <>
       <Box
-        className={`${styles.container} ${
-          isScrolled && isDesktop ? styles.hidden : ""
-        }`}
+        className={styles.container}
         ref={containerRef}
         boxShadow={5}
       >
@@ -168,8 +166,8 @@ const TopNav = () => {
           </Box>
         </Box>
       </Box>
-      <Box
-        className={`${styles.scrollNav} ${!isScrolled ? styles.hidden : ""}`}
+      {/* <Box
+        className={`${styles.scrollNav} ${!isScrolled ? styles.hidden : styles.hidden}`}
         boxShadow={5}
       >
         <Box
@@ -198,7 +196,7 @@ const TopNav = () => {
           </Box>
           <Box className={styles.logo} onClick={handleLogoClick}></Box>
         </Box>
-      </Box>
+      </Box> */}
 
       {/* main drawer */}
       <Drawer

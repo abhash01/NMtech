@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
   Container,
-  useMediaQuery,
   Stack,
   Grid,
   styled,
 } from "@mui/material";
-import TopNav from "../../components/Navbar/TopNav/TopNav";
-import SubNav from "../../components/Navbar/SubNav/SubNav";
-import Footer from "../Footer/Footer";
 import ExtensionIcon from "@mui/icons-material/Extension";
 import ComosImage from "../../assets/siemensComos/Picture1.jpg";
 import HolisticImage from "../../assets/siemensComos/holisticImg.png";
 import FeatureTable from "./FeatureTable ";
 import DesignDocsTable from "./DesignDocsTable ";
+import MainLayout from "../layouts/MainLayout";
 
 const ImageCard = styled(Box)(({ theme }) => ({
   width: "100%",
+  height:"auto",
   borderRadius: theme.shape.borderRadius * 2,
   boxShadow: "0px 6px 24px rgba(0, 0, 0, 0.12)",
   border: `1px solid ${theme.palette.divider}`,
   backgroundColor: theme.palette.background.paper,
-  objectFit: "cover",
+  objectFit: "contain",
   transition: "transform 0.3s ease, box-shadow 0.3s ease",
   cursor: "pointer",
 
@@ -34,50 +31,9 @@ const ImageCard = styled(Box)(({ theme }) => ({
 }));
 
 const SiemensComos = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const isMobileView = useMediaQuery("(max-width: 991px)");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const getScrolledHeight = () => {
-    return isMobileView ? "75px" : isScrolled ? "78px" : "150px";
-  };
   return (
-    <>
-      <Container
-        maxWidth
-        disableGutters
-        style={{
-          backgroundColor: "var(--color-primary)",
-          position: "sticky",
-          top: 0,
-          zIndex: 9999,
-        }}
-      >
-        <TopNav isMenuVisible={isMobileView} />
-      </Container>
-
-      <Container
-        maxWidth
-        disableGutters
-        sx={{
-          position: "sticky",
-          top: `${getScrolledHeight()}`,
-          zIndex: 999,
-          background: "var(--color-primary-light)",
-        }}
-      >
-        {/* <SubNav scrolledHeight={getScrolledHeight()} /> */}
-      </Container>
-
-      <Container maxWidth="lg" sx={{ py: 6, paddingInline: "1rem !important" }}>
+    <MainLayout>
+      <Container maxWidth="lg" sx={{ py: 6 }}>
         <Box>
           <Typography
             variant="h5"
@@ -119,20 +75,20 @@ const SiemensComos = () => {
                 access without compromising on performance.
               </Typography>
             </Grid>
-            <Grid size={12} sx={{ display: "flex", justifyContent: "center" }}>
+            <Grid size={{ xs: 12, sm: 6 }} sx={{ display: "flex", justifyContent: "center" }}>
               <ImageCard
                 component="img"
                 src={ComosImage}
                 alt="COMOS Illustration"
-                sx={{ marginTop: "1rem", maxWidth: "50%" }}
+                sx={{ marginTop: "1rem", }}
               />
             </Grid>
-            <Grid size={12} sx={{ display: "flex", justifyContent: "center" }}>
+            <Grid size={{ xs: 12, sm: 6 }} sx={{ display: "flex", justifyContent: "center" }}>
               <ImageCard
                 component="img"
                 src={HolisticImage}
                 alt="HOLISTIC Illustration"
-                sx={{ marginTop: "1rem", maxWidth: "50%" }}
+                sx={{ marginTop: "1rem", }}
               />
             </Grid>
 
@@ -179,9 +135,7 @@ const SiemensComos = () => {
           </Grid>
         </Box>
       </Container>
-
-      <Footer />
-    </>
+    </MainLayout>
   );
 };
 

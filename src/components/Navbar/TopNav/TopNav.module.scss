@@ -11,7 +11,7 @@
   will-change: opacity;
 
   &.hidden {
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     position: absolute;
     top: 0;

@@ -1,4 +1,11 @@
-import { Box, Grid, Typography, Link, IconButton } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Typography,
+  Link,
+  IconButton,
+  CardMedia,
+} from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -7,6 +14,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import styles from "./Footer.module.scss";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { useNavigate } from "react-router-dom";
+import footerLogo from "../../assets/icons/footerLogo.png";
 
 const nmLinks = [
   { label: "SIEMENS COMOS", url: "/siemens-comos" },
@@ -39,34 +47,13 @@ const contactLinks = [
   { label: "Contact us", url: "/contact-us" },
 ];
 
-const partnerBoxes = [
-  {
-    title: "Solution Partner",
-    subtitle: "COMOS Industry Solutions",
-    bg: "#aaacb047",
-    textColor: "var(--color-primary-light)",
-    clickable: false,
-  },
-  {
-    title: "SIEMENS",
-    subtitle: null,
-    onClick: () =>
-      window.open(
-        "https://www.siemens.com/in/en/products/automation/industry-software/plant-engineering-software-comos.html",
-        "_blank"
-      ),
-    textColor: "var(--color-coral-interactive)",
-    clickable: true,
-  },
-];
-
 const Footer = () => {
   const navigate = useNavigate();
   return (
     <Box className={styles.footerContainer}>
       <Box className={styles.innerContainer}>
         <Grid container spacing={4}>
-          <Grid size={{ xs: 12, sm: 4, lg: 3.5 }}>
+          <Grid size={{ xs: 12, sm: 5, lg: 3.5 }}>
             {/* <Typography variant="h6" fontWeight="bold">
               NM Technocrafts
             </Typography> */}
@@ -130,62 +117,30 @@ const Footer = () => {
                 </IconButton>
               </Box>
               <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-                {partnerBoxes.map((box, index) => (
-                  <Box
-                    key={index}
+                <a
+                  href="https://www.siemens.com/in/en/products/automation/industry-software/plant-engineering-software-comos.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <CardMedia
+                    component="img"
+                    alt="NM Technocrafts Logo"
                     sx={{
-                      width: "150px",
-                      height: "150px",
-                      border: "1px solid var(--color-primary-light)",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      padding: "1rem",
-                      textAlign: "center",
-                      background: box.bg || "transparent",
-                      color: box.textColor || "inherit",
-                      cursor: box.clickable ? "pointer" : "default",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        boxShadow: box.clickable
-                          ? "inset 0 0 10px 6px rgba(0, 0, 0, 0.2)"
-                          : "none",
-                      },
+                      height: { xs: 185, sm: 142, md: 155 },
+                      width: "100%",
+                      borderRadius: 1,
+                      objectFit: "cover",
+                      
                     }}
-                    onClick={box.onClick}
-                  >
-                    <Typography
-                      variant={box.subtitle ? "body1" : "h6"}
-                      sx={{
-                        fontWeight: 500,
-                        lineHeight: 1.2,
-                        color: "inherit",
-                      }}
-                    >
-                      {box.title}
-                    </Typography>
-
-                    {box.subtitle && (
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          mt: 1,
-                          fontWeight: 500,
-                          lineHeight: 1.2,
-                          color: "inherit",
-                        }}
-                      >
-                        {box.subtitle}
-                      </Typography>
-                    )}
-                  </Box>
-                ))}
+                    image={footerLogo}
+                    title="NM Technocrafts"
+                  />
+                </a>
               </Box>
             </Box>
           </Grid>
 
-          <Grid size={{ xs: 12, sm: 8, lg: 8.5 }}>
+          <Grid size={{ xs: 12, sm: 7, lg: 8.5 }}>
             <Grid
               container
               spacing={2}
@@ -193,7 +148,7 @@ const Footer = () => {
               justifyContent="end"
               gap={5}
             >
-              <Grid size={{ xs: 12, sm: 6, md: 6 }}>
+              <Grid size={{ xs: 12, sm: 12, md: 6 }}>
                 <Typography variant="h6" fontWeight="bold" gutterBottom>
                   NM Technocrafts
                 </Typography>
@@ -223,7 +178,7 @@ const Footer = () => {
                 </Box>
               </Grid>
 
-              <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+              <Grid size={{ xs: 12, sm: 12, md: 3 }}>
                 <Typography variant="h6" fontWeight="bold" gutterBottom>
                   Contact
                 </Typography>

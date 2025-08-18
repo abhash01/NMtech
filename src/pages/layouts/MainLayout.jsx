@@ -1,20 +1,32 @@
 import { useEffect, useState } from "react";
-import { Container, useMediaQuery } from "@mui/material";
+import { Container, useMediaQuery, Fab, Zoom } from "@mui/material";
 import TopNav from "../../components/Navbar/TopNav/TopNav";
 import Footer from "../Footer/Footer";
 import SubNav from "../../components/Navbar/SubNav/SubNav";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const MainLayout = ({ children, showSubNav = false }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
   const isMobileView = useMediaQuery("(max-width: 991px)");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const scrolled = window.scrollY > 50;
+      setIsScrolled(scrolled);
+      // Show scroll button when scrolled more than 300px
+      setShowScrollButton(window.scrollY > 300);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 500,
+      behavior: "smooth",
+    });
+  };
 
   const getScrolledHeight = () => {
     if (isMobileView) return "75px";
@@ -58,6 +70,28 @@ const MainLayout = ({ children, showSubNav = false }) => {
       <Container maxWidth disableGutters>
         <Footer />
       </Container>
+
+      {/* Scroll to top button */}
+      <Zoom in={showScrollButton}>
+        <Fab
+          aria-label="scroll to top"
+          onClick={scrollToTop}
+          sx={{
+            position: "fixed",
+            bottom: 16,
+            right: 16,
+            zIndex: 1000,
+            backgroundColor: "var(--color-primary-light)",
+            color: "var(--color-primary)",
+            "&:hover": {
+              backgroundColor: "var(--color-primary-light)",
+              color: "var(--color-primary)",
+            },
+          }}
+        >
+          <KeyboardArrowUpIcon />
+        </Fab>
+      </Zoom>
     </>
   );
 };
