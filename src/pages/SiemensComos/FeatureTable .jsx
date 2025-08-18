@@ -12,17 +12,21 @@ import {
   ListItem,
   ListItemText,
   Stack,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import NotInterestedIcon from "@mui/icons-material/NotInterested";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { comosData } from "../../data";
+import { ExpandMore } from "@mui/icons-material";
 
 const FeatureTable = () => {
   return (
     <TableContainer component={Paper}>
       <Table>
-        <TableHead sx={{ backgroundColor: "#9b59b6" }}>
+        <TableHead sx={{ backgroundColor: "var(--color-primary-light)" }}>
           <TableRow>
             <TableCell
               sx={{
@@ -55,46 +59,76 @@ const FeatureTable = () => {
                 backgroundColor: idx % 2 === 0 ? "#f9f6ff" : "#ffffff", // Light purple and white
               }}
             >
-              <TableCell sx={{ borderRight: "1px solid #9b59b6" }}>
-                <Typography variant="subtitle1" fontWeight="600" gutterBottom>
-                  {feature.title}
-                </Typography>
-                <List dense disablePadding>
-                  {feature.items.map((item, index) =>
-                    typeof item === "string" ? (
-                      <ListItem key={index} sx={{ py: 0.25 }}>
-                        <ListItemText primary={`• ${item}`} />
-                      </ListItem>
-                    ) : (
-                      <Box key={index}>
-                        <ListItem sx={{ py: 0.25 }}>
-                          <ListItemText primary={`• ${item.parent}`} />
-                        </ListItem>
-                        {item.children.map((child, childIndex) => (
-                          <ListItem key={childIndex} sx={{ pl: 4, py: 0.25 }}>
-                            <ListItemText primary={`◦ ${child}`} />
-                          </ListItem>
-                        ))}
-                      </Box>
-                    )
-                  )}
-                </List>
-                {feature.otherImage && (
-                  <Box
-                    component="img"
-                    src={feature.otherImage}
-                    alt={feature.title}
-                    width="100%"
-                    maxWidth="450px"
-                    height="auto"
-                  />
-                )}
+              <TableCell
+                sx={{ borderRight: "1px solid var(--color-primary-light)" }}
+              >
+                <Accordion
+                  elevation={0}
+                  sx={{ backgroundColor: "transparent" }}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMore />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography
+                      variant="subtitle1"
+                      fontWeight="600"
+                      gutterBottom
+                    >
+                      {feature.title}
+                    </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <List dense disablePadding>
+                      {feature.items.map((item, index) =>
+                        typeof item === "string" ? (
+                          <>
+                            <ListItem key={index} sx={{ py: 0.25 }}>
+                              <ListItemText primary={`• ${item}`} />
+                            </ListItem>
+                            {feature.otherImage && (
+                              <Box
+                                component="img"
+                                src={feature.otherImage}
+                                alt={feature.title}
+                                width="100%"
+                                maxWidth="450px"
+                                height="auto"
+                              />
+                            )}
+                          </>
+                        ) : (
+                          <Box key={index}>
+                            <ListItem sx={{ py: 0.25 }}>
+                              <ListItemText primary={`• ${item.parent}`} />
+                            </ListItem>
+                            {item.children.map((child, childIndex) => (
+                              <ListItem
+                                key={childIndex}
+                                sx={{ pl: 4, py: 0.25 }}
+                              >
+                                <ListItemText primary={`◦ ${child}`} />
+                              </ListItem>
+                            ))}
+                          </Box>
+                        )
+                      )}
+                    </List>
+                  </AccordionDetails>
+                </Accordion>
               </TableCell>
               <TableCell
-                sx={{ borderRight: "1px solid #9b59b6", textAlign: "center" }}
+                sx={{
+                  borderRight: "1px solid var(--color-primary-light)",
+                  textAlign: "center",
+                }}
               >
                 {feature.comos && (
-                  <CheckCircleIcon fontSize="large" sx={{ color: "#8e44ad" }} />
+                  <CheckCircleIcon
+                    fontSize="large"
+                    sx={{ color: "var(--color-primary-light)" }}
+                  />
                 )}
               </TableCell>
               <TableCell
@@ -102,7 +136,7 @@ const FeatureTable = () => {
                   width: "250px",
                   textAlign: "center",
                   "@media (max-width: 600px)": {
-                    width: "auto"
+                    width: "auto",
                   },
                 }}
               >
@@ -115,12 +149,12 @@ const FeatureTable = () => {
                   {feature.notAllowed ? (
                     <NotInterestedIcon
                       fontSize="large"
-                      sx={{ color: "#8e44ad" }}
+                      sx={{ color: "var(--color-primary-light)" }}
                     />
                   ) : (
                     <HelpOutlineIcon
                       fontSize="large"
-                      sx={{ color: "#8e44ad" }}
+                      sx={{ color: "var(--color-primary-light)" }}
                     />
                   )}
                 </Stack>

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Table,
   TableBody,
@@ -9,25 +10,50 @@ import {
   List,
   ListItem,
   ListItemText,
+  IconButton,
+  Box,
 } from "@mui/material";
+import { ExpandMore, ExpandLess } from "@mui/icons-material";
 import { designData } from "../../data";
 
-const renderBulletList = (items) => (
-  <List dense disablePadding>
-    {items.map((item, index) => (
-      <ListItem key={index} sx={{ py: 0.25 }}>
-        <ListItemText primary={`• ${item}`} />
-      </ListItem>
-    ))}
-  </List>
-);
+const RenderBulletList = ({ items }) => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleItems = showAll ? items : items.slice(0, 1);
+
+  return (
+    <Box sx={{ position: "relative" }}>
+      {items.length > 1 && (
+        <IconButton
+          size="small"
+          onClick={() => setShowAll((prev) => !prev)}
+          sx={{
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            zIndex: 1,
+          }}
+          aria-label={showAll ? "View less" : "View more"}
+        >
+          {showAll ? <ExpandLess /> : <ExpandMore />}
+        </IconButton>
+      )}
+      <List dense disablePadding>
+        {visibleItems.map((item, index) => (
+          <ListItem key={index} sx={{ py: 0.25 }}>
+            <ListItemText primary={`• ${item}`} />
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+};
 
 const DesignDocsTable = () => {
   return (
     <TableContainer component={Paper}>
       <Table>
-        <TableHead sx={{ backgroundColor: "#9b59b6" }}>
-          <TableRow sx={{ backgroundColor: "#9b59b6" }}>
+        <TableHead sx={{ backgroundColor: "var(--color-primary-light)" }}>
+          <TableRow sx={{ backgroundColor: "var(--color-primary-light)" }}>
             <TableCell
               rowSpan={2}
               colSpan={1}
@@ -53,7 +79,7 @@ const DesignDocsTable = () => {
               Design Documentation Deliverables
             </TableCell>
           </TableRow>
-          <TableRow sx={{ backgroundColor: "#9b59b6" }}>
+          <TableRow sx={{ backgroundColor: "var(--color-primary-light)" }}>
             <TableCell
               sx={{
                 color: "#fff",
@@ -96,14 +122,14 @@ const DesignDocsTable = () => {
               }}
             >
               <TableCell>{row.phase}</TableCell>
-              <TableCell sx={{ borderLeft: "1px solid #9b59b6" }}>
-                {renderBulletList(row.process)}
+              <TableCell sx={{ borderLeft: "1px solid var(--color-primary-light)" }}>
+                <RenderBulletList items={row.process} />
               </TableCell>
-              <TableCell sx={{ borderLeft: "1px solid #9b59b6" }}>
-                {renderBulletList(row.instrumentation)}
+              <TableCell sx={{ borderLeft: "1px solid var(--color-primary-light)" }}>
+                <RenderBulletList items={row.instrumentation} />
               </TableCell>
-              <TableCell sx={{ borderLeft: "1px solid #9b59b6" }}>
-                {renderBulletList(row.electrical)}
+              <TableCell sx={{ borderLeft: "1px solid var(--color-primary-light)" }}>
+                <RenderBulletList items={row.electrical} />
               </TableCell>
             </TableRow>
           ))}
