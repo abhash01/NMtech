@@ -374,31 +374,33 @@ const PlantEngg = () => {
                     <ExpandMore sx={{ color: "var(--color-primary)" }} />
                   }
                 >
-                  <Typography fontWeight={500} variant="h6" component="h2">
-                    {section.title}
-                  </Typography>
-                  {section.item.map((imgItem, i) => (
-                    <Typography
-                      variant="body1"
-                      component="p"
-                      key={i}
-                      sx={{ color: "var(--color-primary)" }}
-                    >
-                      {imgItem.description}
+                  <Box sx={{ display: "flex", flexDirection: "column" }}>
+                    <Typography fontWeight={500} variant="h6" component="h2">
+                      {section.title}
                     </Typography>
-                  ))}
-                  {section.item.map((imgItem, i) => (
-                    <Typography
-                      variant="body1"
-                      component="p"
-                      key={i}
-                      sx={{ color: "var(--color-primary)" }}
-                    >
-                      {imgItem.subtitle}
-                    </Typography>
-                  ))}
+                    <Box sx={{ mt: 0 }}>
+                      {section.item.map((imgItem, i) => (
+                        <Typography
+                          variant="body1"
+                          key={i}
+                          sx={{ color: "var(--color-primary)" }}
+                        >
+                          {imgItem.description}
+                        </Typography>
+                      ))}
+                      {section.item.map((imgItem, i) => (
+                        <Typography
+                          variant="body1"
+                          key={i}
+                          sx={{ color: "var(--color-primary)" }}
+                        >
+                          {imgItem.subtitle}
+                        </Typography>
+                      ))}
+                    </Box>
+                  </Box>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{ my: 0 }}>
                   {section.item.map((imgItem, i) => (
                     <Grid
                       size={{ xs: 12 }}
