@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Box,
   Typography,
   Container,
-  useMediaQuery,
   Stack,
   Grid,
   styled,
+  Divider,
+  Card,
+  CardContent,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@mui/material";
-import TopNav from "../../components/Navbar/TopNav/TopNav";
-import SubNav from "../../components/Navbar/SubNav/SubNav";
-import Footer from "../Footer/Footer";
-import ExtensionIcon from "@mui/icons-material/Extension";
 import InteractiveImg from "../../assets/siemensComos/InteractiveImg.png";
 import PBFImg from "../../assets/siemensComos/PBFImg.png";
 import PBFImg1 from "../../assets/siemensComos/PBFImg1.png";
@@ -45,6 +46,8 @@ import QAImg from "../../assets/siemensComos/QAImg.png";
 import QAImg1 from "../../assets/siemensComos/QAImg1.png";
 import BEImg from "../../assets/siemensComos/BEImg.jpg";
 import BEImg1 from "../../assets/siemensComos/BEImg1.png";
+import { ExpandMore } from "@mui/icons-material";
+import MainLayout from "../layouts/MainLayout";
 
 const data = [
   {
@@ -337,56 +340,15 @@ const ImageCard = styled(Box)(({ theme }) => ({
   transition: "transform 0.3s ease, box-shadow 0.3s ease",
   cursor: "pointer",
 
-  "&:hover": {
-    transform: "scale(1.03)",
-    boxShadow: "0px 10px 32px rgba(0, 0, 0, 0.2)",
-  },
+    // "&:hover": {
+    //   transform: "scale(1.03)",
+    //   boxShadow: "0px 10px 32px rgba(0, 0, 0, 0.2)",
+    // },
 }));
 
 const AssetManagement = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const isMobileView = useMediaQuery("(max-width: 991px)");
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const getScrolledHeight = () => {
-    return isMobileView ? "75px" : isScrolled ? "78px" : "150px";
-  };
   return (
-    <>
-      <Container
-        maxWidth
-        disableGutters
-        style={{
-          backgroundColor: "var(--color-primary)",
-          position: "sticky",
-          top: 0,
-          zIndex: 9999,
-        }}
-      >
-        <TopNav isMenuVisible={isMobileView} />
-      </Container>
-
-      <Container
-        maxWidth
-        disableGutters
-        sx={{
-          position: "sticky",
-          top: `${getScrolledHeight()}`,
-          zIndex: 999,
-          background: "var(--color-primary-light)",
-        }}
-      >
-        {/* <SubNav scrolledHeight={getScrolledHeight()} /> */}
-      </Container>
-
+    <MainLayout>
       <Container maxWidth="lg" sx={{ py: 6, paddingInline: "1rem !important" }}>
         <Box>
           <Typography
@@ -399,95 +361,130 @@ const AssetManagement = () => {
           >
             How COMOS Looks for Asset Management and Design Engineering
           </Typography>
+          <Divider
+            sx={{
+              width: "280px",
+              height: "4px",
+              backgroundColor: "var(--color-primary-light)",
+              margin: "1rem auto 4rem",
+              borderRadius: "2px",
+              boxShadow: "0px 7px 11px 1px var(--color-primary-light)",
+            }}
+          />
 
-          <Grid container spacing={2} sx={{ marginTop: "1rem" }}>
+          {/* <Grid container spacing={2} sx={{ marginTop: "1rem" }}> */}
             {data.map((section, index) => (
-              <React.Fragment key={index}>
-                <Grid size={{ xs: 12 }}>
-                  <Stack
-                    direction="row"
-                    alignItems="center"
-                    spacing={1}
-                    sx={{ mt: 2 }}
-                  >
-                    <ExtensionIcon
-                      fontSize="small"
-                      sx={{ color: "var(--color-dark)" }}
-                    />
-                    <Typography
-                      variant="h6"
-                      component="h6"
-                      sx={{ color: "var(--color-dark)" }}
-                      fontWeight={600}
-                      gutterBottom
-                    >
-                      {section.title}
-                    </Typography>
-                  </Stack>
-                </Grid>
-
-                {section.item.map((imgItem, i) => (
-                  <Grid
-                    size={{ xs: 12 }}
-                    key={i}
+              <Card
+                key={index}
+                sx={{
+                  height: "100%",
+                  borderRadius: 3,
+                  boxShadow: 4,
+                  mt: 2,
+                  transition: "0.3s",
+                  color: "var( --color-primary)",
+                  bgcolor: "var(--color-primary-light)",
+                  "&:hover": { boxShadow: 8 },
+                }}
+              >
+                <CardContent>
+                  <Accordion
+                    defaultExpanded={index === 0}
+                    disableGutters
                     sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
+                      boxShadow: "none",
+                      borderBottom: "1px solid var(--color-primary)",
+                      bgcolor: "transparent",
+                      color: "var(--color-primary)",
+                      "&:last-of-type": {
+                        borderBottom: "none",
+                      },
                     }}
                   >
-                    {imgItem.description && (
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          color: "var(--color-dark)",
-                          mt: 2,
-                          fontWeight: 500,
-                          textAlign: "center",
-                        }}
-                      >
-                        {imgItem.description}
-                      </Typography>
-                    )}
-
-                    {imgItem.points && imgItem.points.length > 0 && (
-                      <Box
-                        component="ul"
-                        sx={{
-                          mt: 1,
-                          mb: 2,
-                          color: "var(--color-dark)",
-                          pl: 3,
-                          textAlign: "left",
-                          width: "100%",
-                          maxWidth: "70%",
-                        }}
-                      >
-                        {imgItem.points.map((point, idx) => (
-                          <li key={idx}>
-                            <Typography variant="body2" component="span">
-                              {point}
+                    <AccordionSummary
+                      expandIcon={
+                        <ExpandMore sx={{ color: "var(--color-primary)" }} />
+                      }
+                    >
+                      <Typography fontWeight={500}>{section.title}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      {section.item.map((imgItem, i) => (
+                        <Grid
+                          size={{ xs: 12 }}
+                          key={i}
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                          }}
+                        >
+                          {imgItem.description && (
+                            <Typography
+                              variant="body1"
+                              sx={{
+                                color: "var(--color-primary)",
+                                mt: 2,
+                                fontWeight: 500,
+                                textAlign: "center",
+                              }}
+                            >
+                              {imgItem.description}
                             </Typography>
-                          </li>
-                        ))}
-                      </Box>
-                    )}
-                    <ImageCard
-                      component="img"
-                      src={imgItem.image}
-                      alt={imgItem.alt}
-                      sx={{ marginTop: "1rem", maxWidth: { xs: "90%", sm: "80%", md: "70%"} }}
-                    />
-                  </Grid>
-                ))}
-              </React.Fragment>
+                          )}
+
+                          {imgItem.points && imgItem.points.length > 0 && (
+                            <Box
+                              component="ul"
+                              sx={{
+                                mt: 1,
+                                mb: 2,
+                                color: "var(--color-dark)",
+                                pl: 3,
+                                textAlign: "left",
+                                width: "100%",
+                                maxWidth: "70%",
+                              }}
+                            >
+                              {imgItem.points.map((point, idx) => (
+                                <li
+                                  key={idx}
+                                  style={{
+                                    listStyleType: "disc",
+                                    color: "white",
+                                  }}
+                                >
+                                  <Typography
+                                    variant="body2"
+                                    component="span"
+                                    sx={{ color: "var(--color-primary)" }}
+                                  >
+                                    {point}
+                                  </Typography>
+                                </li>
+                              ))}
+                            </Box>
+                          )}
+                          <ImageCard
+                            component="img"
+                            src={imgItem.image}
+                            alt={imgItem.alt}
+                            sx={{
+                              marginTop: "1rem",
+                              maxWidth: { xs: "90%", sm: "80%", md: "70%" },
+                            }}
+                          />
+                        </Grid>
+                      ))}
+                    </AccordionDetails>
+                  </Accordion>
+                </CardContent>
+              </Card>
             ))}
-          </Grid>
+          {/* </Grid> */}
         </Box>
       </Container>
-
-      <Footer />
-    </>
+    </MainLayout>
   );
 };
 
