@@ -77,17 +77,20 @@ const MaintenanceStrategyTable = () => {
   return (
     <TableContainer
       component={Paper}
-      sx={{ maxWidth: "80%", my: 4, mx: "auto" }}
+      // sx={{ maxWidth: "80%", my: 4, mx: "auto" }}
     >
-      <Table aria-label="maintenance strategies table">
+      <Table
+        sx={{ border: "1px solid #ccc" }}
+        aria-label="maintenance strategies table"
+      >
         <TableHead>
           <TableRow>
             <TableCell
               sx={{
-                bgcolor: "#f8d9e0",
+                bgcolor: "var(--color-primary-light)",
                 fontWeight: "bold",
-                textAlign: "center",
-                verticalAlign: "middle",
+                border: "1px solid #ccc",
+                color: "var(--color-primary)",
               }}
             >
               Strategy
@@ -96,11 +99,12 @@ const MaintenanceStrategyTable = () => {
               <TableCell
                 key={index}
                 sx={{
-                  bgcolor: "#a10c57",
+                  bgcolor: "var(--color-primary-light)",
                   color: "white",
                   fontWeight: "bold",
-                  textAlign: "center",
-                  verticalAlign: "middle",
+                  borderLeft: "1px solid #ccc",
+                  width: `${100 / maintenanceData.length}%`,
+                  minWidth: "150px",
                 }}
               >
                 {item.strategy}
@@ -112,11 +116,11 @@ const MaintenanceStrategyTable = () => {
           <TableRow>
             <TableCell
               sx={{
-                bgcolor: "#f8d9e0",
+                bgcolor: "var(--color-primary-light)",
                 fontWeight: "bold",
                 borderTop: "1px solid #ccc",
-                textAlign: "center",
-                verticalAlign: "middle",
+                color: "var(--color-primary)", 
+                verticalAlign: "baseline",
               }}
             >
               What the program looks like
@@ -126,13 +130,19 @@ const MaintenanceStrategyTable = () => {
                 key={index}
                 sx={{
                   borderLeft: "1px solid #ccc",
-                  textAlign: "center",
                   verticalAlign: "baseline",
                 }}
               >
                 <ul>
                   {item.program.map((point, idx) => (
-                    <li key={idx} style={{ paddingBottom: "10px" }}>
+                    <li
+                      key={idx}
+                      style={{
+                        paddingBottom: "10px",
+                        textAlign: "left",
+                        listStyleType: "none",
+                      }}
+                    >
                       {point}
                     </li>
                   ))}
@@ -143,11 +153,11 @@ const MaintenanceStrategyTable = () => {
           <TableRow>
             <TableCell
               sx={{
-                bgcolor: "#f8d9e0",
+                bgcolor: "var(--color-primary-light)",
                 fontWeight: "bold",
                 borderTop: "1px solid #ccc",
-                textAlign: "center",
-                verticalAlign: "middle",
+                verticalAlign: "baseline",
+                color: "var(--color-primary)",
               }}
             >
               What the technology looks like
@@ -163,7 +173,14 @@ const MaintenanceStrategyTable = () => {
               >
                 <ul>
                   {item.technology.map((point, idx) => (
-                    <li key={idx} style={{ paddingBottom: "10px" }}>
+                    <li
+                      key={idx}
+                      style={{
+                        paddingBottom: "10px",
+                        textAlign: "left",
+                        listStyleType: "none",
+                      }}
+                    >
                       {point}
                     </li>
                   ))}

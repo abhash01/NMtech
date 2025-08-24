@@ -25,14 +25,14 @@ import { ExpandMore } from "@mui/icons-material";
 const FeatureTable = () => {
   return (
     <TableContainer component={Paper}>
-      <Table>
+      <Table sx={{ border: "1px solid #ccc" }} aria-label="feature table">
         <TableHead sx={{ backgroundColor: "var(--color-primary-light)" }}>
           <TableRow>
             <TableCell
               sx={{
                 color: "#fff",
                 fontWeight: 600,
-                borderRight: "1px solid #ccc",
+                border: "1px solid #ccc",
               }}
             >
               Feature Description
@@ -41,12 +41,14 @@ const FeatureTable = () => {
               sx={{
                 color: "#fff",
                 fontWeight: 600,
-                borderRight: "1px solid #ccc",
+                border: "1px solid #ccc",
               }}
             >
               COMOS
             </TableCell>
-            <TableCell sx={{ color: "#fff", fontWeight: 600 }}>
+            <TableCell
+              sx={{ color: "#fff", fontWeight: 600, border: "1px solid #ccc" }}
+            >
               Other Similar Solution
             </TableCell>
           </TableRow>

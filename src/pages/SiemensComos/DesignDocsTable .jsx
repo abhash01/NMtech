@@ -51,7 +51,7 @@ const RenderBulletList = ({ items }) => {
 const DesignDocsTable = () => {
   return (
     <TableContainer component={Paper}>
-      <Table>
+      <Table sx={{ border: "1px solid #ccc" }} aria-label="design docs table">
         <TableHead sx={{ backgroundColor: "var(--color-primary-light)" }}>
           <TableRow sx={{ backgroundColor: "var(--color-primary-light)" }}>
             <TableCell
